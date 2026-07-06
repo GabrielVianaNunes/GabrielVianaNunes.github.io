@@ -21,8 +21,10 @@ body {
     --muted: #6b7280;
     --surface: #f3f4f6;
     --border: #e5e7eb;
-    --primary: #2563eb;
+    --primary: #3b82f6;
     --ring: #93c5fd;
+    --accent: var(--primary);
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,6 +36,7 @@ body {
         --border: #1f2937;
         --primary: #60a5fa;
         --ring: #1d4ed8;
+        --accent: var(--primary);
     }
 }
 
@@ -365,30 +368,6 @@ a:hover {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
-    }
-}
-
-:root {
-    --bg: #ffffff;
-    --text: #111827;
-    --muted: #6b7280;
-    --surface: #f3f4f6;
-    --border: #e5e7eb;
-    --primary: #2563eb;
-    --ring: #93c5fd;
-    --accent: var(--primary);   /* <- usa a primária no light */
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #0b0f19;
-        --text: #e5e7eb;
-        --muted: #9ca3af;
-        --surface: #111827;
-        --border: #1f2937;
-        --primary: #60a5fa;
-        --ring: #1d4ed8;
-        --accent: var(--primary); /* <- acompanha a primária no dark */
     }
 }
 
