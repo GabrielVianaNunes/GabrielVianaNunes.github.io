@@ -46,18 +46,31 @@
 </head>
 
 <body>
-    <a class="skip-link" href="#conteudo">Skip to content</a>
+    <a class="skip-link" href="#conteudo" data-i18n="skip.link">Skip to content</a>
 
     <header class="site-header" role="banner">
         <nav class="nav container" aria-label="main">
             <a class="logo" href="#">GN</a>
             <ul class="menu" role="list">
-                <li><a href="#sobre">About</a></li>
-                <li><a href="#habilidades">Skills</a></li>
-                <li><a href="#projetos">Projects</a></li>
-                <li><a href="#contato">Contact</a></li>
+                <li><a href="#sobre" data-i18n="nav.about">About</a></li>
+                <li><a href="#experiencia" data-i18n="nav.experience">Experience</a></li>
+                <li><a href="#habilidades" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projetos" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contato" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="nav-controls">
+                <div class="lang-switcher">
+                    <button type="button" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:langSwitcher.aria">
+                        <span class="fi fi-us lang-current-flag" aria-hidden="true"></span>
+                        <span class="lang-current-name">English</span>
+                    </button>
+                    <ul class="lang-menu" role="listbox" hidden>
+                        <li class="lang-option" role="option" data-lang="pt" aria-selected="false"><span class="fi fi-br" aria-hidden="true"></span> Português</li>
+                        <li class="lang-option" role="option" data-lang="en" aria-selected="true"><span class="fi fi-us" aria-hidden="true"></span> English</li>
+                        <li class="lang-option" role="option" data-lang="de" aria-selected="false"><span class="fi fi-de" aria-hidden="true"></span> Deutsch</li>
+                        <li class="lang-option" role="option" data-lang="es" aria-selected="false"><span class="fi fi-es" aria-hidden="true"></span> Español</li>
+                    </ul>
+                </div>
                 <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
                     <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
                         <circle cx="12" cy="12" r="4"></circle>
@@ -304,6 +317,7 @@
         <div class="container small">© 2025 Gabriel Nunes • Updated on Aug 26, 2025</div>
     </footer>
 
+    <script src="assets/js/i18n.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
 </body>
 
