@@ -333,6 +333,56 @@ a:hover {
   filter: drop-shadow(0 0 4px var(--ring));
 }
 
+/* ========== Timeline / Experience ========== */
+.timeline {
+    position: relative;
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0 0 0 1.5rem;
+    border-left: 2px solid var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -1.6rem;
+    top: .3rem;
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 0 4px var(--bg);
+}
+
+.timeline-period {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--muted);
+    margin: 0 0 .25rem;
+}
+
+.timeline-item h3 {
+    margin: 0 0 .5rem;
+    font-size: 1.1rem;
+}
+
+.timeline-item--featured .timeline-marker {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg), 0 0 8px var(--ring);
+}
+
+.timeline-item--featured h3 {
+    color: var(--primary);
+}
+
 /* ========== Projetos ========== */
 .cards {
     display: grid;
