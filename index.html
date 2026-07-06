@@ -303,17 +303,53 @@
 
         <section id="projetos" class="section">
             <div class="container">
-                <h2>Projects</h2>
+                <h2 data-i18n="projects.title">Projects</h2>
+
+                <article class="case-study case-study--featured" data-reveal>
+                    <span class="case-badge" data-i18n="projects.senai.badge">Featured case</span>
+                    <h3 data-i18n="projects.senai.title">Metrology Lab Management System</h3>
+                    <div class="case-body">
+                        <div>
+                            <p class="case-label" data-i18n="projects.labelProblem">Problem</p>
+                            <p data-i18n="projects.senai.problem">
+                                SENAI's metrology lab needed a single system to manage users, permissions, and
+                                service orders instead of relying on manual spreadsheets and paperwork.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="case-label" data-i18n="projects.labelSolution">Solution</p>
+                            <p data-i18n="projects.senai.solution">
+                                Built a full management system with role-based permission hierarchy, service-order
+                                (OS) workflow, and automatic PDF report generation, backed by a Spring Boot API and
+                                PostgreSQL database.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="case-label" data-i18n="projects.labelImpact">Impact</p>
+                            <p data-i18n="projects.senai.impact">
+                                Digitized the lab's operational workflow end-to-end, from data modeling to backend
+                                implementation.
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="tags" role="list">
+                        <li>Java</li>
+                        <li>Spring Boot</li>
+                        <li>PostgreSQL</li>
+                        <li>PDF Generation</li>
+                    </ul>
+                </article>
 
                 <div class="cards">
-                    <article class="card">
+                    <article class="card" data-reveal>
                         <h3>
-                            <a href="https://github.com/SEU-USUARIO/biblioteca-jpa" target="_blank"
-                                rel="noopener noreferrer">
-                                Library System
-                            </a>
+                            <a href="https://github.com/GabrielVianaNunes/biblioteca-jpa" target="_blank"
+                                rel="noopener noreferrer" data-i18n="projects.library.title">Library System</a>
                         </h3>
-                        <p>Full CRUD with Spring Boot + JPA + Swagger. Future Angular integration planned.</p>
+                        <p data-i18n="projects.library.desc">
+                            Full CRUD system with Spring Boot, JPA and Swagger documentation. Built with a clean,
+                            RESTful API ready for a future Angular front-end.
+                        </p>
                         <ul class="tags" role="list">
                             <li>Java</li>
                             <li>Spring</li>
@@ -321,14 +357,15 @@
                         </ul>
                     </article>
 
-                    <article class="card">
+                    <article class="card" data-reveal>
                         <h3>
-                            <a href="https://github.com/SEU-USUARIO/agenda-angular" target="_blank"
-                                rel="noopener noreferrer">
-                                Contacts Agenda
-                            </a>
+                            <a href="https://github.com/GabrielVianaNunes/agenda-angular" target="_blank"
+                                rel="noopener noreferrer" data-i18n="projects.agenda.title">Contacts Agenda</a>
                         </h3>
-                        <p>Angular 17 SPA with CRUD and filters. Reusable, responsive structure.</p>
+                        <p data-i18n="projects.agenda.desc">
+                            Angular 17 SPA with full CRUD, search filters and a reusable, responsive component
+                            structure built on PrimeNG.
+                        </p>
                         <ul class="tags" role="list">
                             <li>Angular</li>
                             <li>TypeScript</li>
@@ -336,14 +373,15 @@
                         </ul>
                     </article>
 
-                    <article class="card">
+                    <article class="card" data-reveal>
                         <h3>
-                            <a href="https://github.com/SEU-USUARIO/vehiclerental_api" target="_blank"
-                                rel="noopener noreferrer">
-                                Vehicle Rental
-                            </a>
+                            <a href="https://github.com/GabrielVianaNunes/vehiclerental_api" target="_blank"
+                                rel="noopener noreferrer" data-i18n="projects.rental.title">Vehicle Rental</a>
                         </h3>
-                        <p>REST API with business rules and JPA. Documented and front-end ready.</p>
+                        <p data-i18n="projects.rental.desc">
+                            REST API modeling real rental business rules with JPA, fully documented and ready to plug
+                            into any front-end.
+                        </p>
                         <ul class="tags" role="list">
                             <li>Java</li>
                             <li>Spring</li>

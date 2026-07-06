@@ -393,6 +393,47 @@ a:hover {
 }
 
 /* ========== Projetos ========== */
+.case-study {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--surface);
+}
+
+.case-study--featured {
+    border-color: var(--primary);
+}
+
+.case-badge {
+    display: inline-block;
+    margin-bottom: .75rem;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    font-family: var(--mono);
+    font-size: .75rem;
+}
+
+.case-body {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 1rem 0;
+}
+
+.case-label {
+    margin: 0 0 .25rem;
+    font-family: var(--mono);
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+}
+
 .cards {
     display: grid;
     gap: 1rem;
