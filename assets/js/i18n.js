@@ -367,6 +367,8 @@
         var menu = document.querySelector('.lang-menu');
         if (!toggle || !menu) return;
 
+        var options = Array.prototype.slice.call(menu.querySelectorAll('.lang-option'));
+
         function close() {
             menu.hidden = true;
             toggle.setAttribute('aria-expanded', 'false');
@@ -375,9 +377,23 @@
             menu.hidden = false;
             toggle.setAttribute('aria-expanded', 'true');
         }
+        function focusOption(index) {
+            var clamped = (index + options.length) % options.length;
+            options[clamped].focus();
+        }
 
         toggle.addEventListener('click', function () {
             if (menu.hidden) open(); else close();
+        });
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                open();
+                var selectedIndex = options.findIndex(function (opt) {
+                    return opt.getAttribute('aria-selected') === 'true';
+                });
+                focusOption(e.key === 'ArrowDown' ? (selectedIndex + 1) : (selectedIndex - 1));
+            }
         });
         document.addEventListener('click', function (e) {
             if (!menu.hidden && !e.target.closest('.lang-switcher')) close();
@@ -388,11 +404,25 @@
                 toggle.focus();
             }
         });
-        menu.querySelectorAll('.lang-option').forEach(function (opt) {
+        options.forEach(function (opt, index) {
             opt.addEventListener('click', function () {
                 setLanguage(opt.getAttribute('data-lang'), true);
                 close();
                 toggle.focus();
+            });
+            opt.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setLanguage(opt.getAttribute('data-lang'), true);
+                    close();
+                    toggle.focus();
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    focusOption(index + 1);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    focusOption(index - 1);
+                }
             });
         });
     }

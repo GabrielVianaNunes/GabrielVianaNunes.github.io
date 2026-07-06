@@ -682,6 +682,11 @@ html[data-theme="dark"] .tags li {
     background: var(--surface);
 }
 
+.lang-option:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: -2px;
+}
+
 .lang-option[aria-selected="true"] {
     font-weight: 700;
     color: var(--primary);
