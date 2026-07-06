@@ -166,6 +166,24 @@ a:hover {
     max-width: 60ch;
 }
 
+.badge {
+    display: inline-block;
+    margin: 0 0 .75rem;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--primary);
+}
+
+.location {
+    margin-top: .75rem;
+    color: var(--muted);
+    font-size: .95rem;
+}
+
 .cta {
     display: flex;
     gap: 1rem;
