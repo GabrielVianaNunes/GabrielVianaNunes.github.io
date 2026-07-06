@@ -51,7 +51,12 @@
     <header class="site-header" role="banner">
         <nav class="nav container" aria-label="main">
             <a class="logo" href="#">GN</a>
-            <ul class="menu" role="list">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" data-i18n-attr="aria-label:nav.menuToggle">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="menu" id="primary-menu" role="list">
                 <li><a href="#sobre" data-i18n="nav.about">About</a></li>
                 <li><a href="#experiencia" data-i18n="nav.experience">Experience</a></li>
                 <li><a href="#habilidades" data-i18n="nav.skills">Skills</a></li>
@@ -317,6 +322,7 @@
         <div class="container small">© 2025 Gabriel Nunes • Updated on Aug 26, 2025</div>
     </footer>
 
+    <script src="assets/js/main.js" defer></script>
     <script src="assets/js/i18n.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
 </body>

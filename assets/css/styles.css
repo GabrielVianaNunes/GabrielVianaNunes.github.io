@@ -107,6 +107,32 @@ a:hover {
     font-weight: 700;
 }
 
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border);
+    border-radius: .625rem;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    background: var(--text);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}
+
 /* Acessibilidade: pular para conteúdo */
 .skip-link {
     position: absolute;
@@ -354,8 +380,35 @@ html[data-theme="dark"] .tags li {
         padding: 3rem 0 2rem;
     }
 
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
     .menu {
-        gap: .25rem;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: .5rem 1rem 1rem;
+    }
+
+    .menu.is-open {
+        display: flex;
+    }
+
+    .menu a {
+        display: block;
+        padding: .6rem .5rem;
     }
 }
 
@@ -365,6 +418,18 @@ html[data-theme="dark"] .tags li {
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
     }
+}
+
+/* ========== Scroll reveal ========== */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
 }
 
 /* ----- Languages block ----- */
