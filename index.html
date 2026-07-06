@@ -181,61 +181,87 @@
 
         <section id="habilidades" class="section">
             <div class="container">
-                <h2>Hard Skills</h2>
+                <h2 data-i18n="skills.hardTitle">Hard Skills</h2>
+
+                <h3 class="skills-cat" data-i18n="skills.cat.backend">Backend</h3>
                 <ul class="skills-icons" role="list">
                     <li><i class="devicon-java-plain colored"></i> Java</li>
+                    <li><i class="devicon-spring-plain colored"></i> Spring Boot</li>
                     <li><i class="devicon-python-plain colored"></i> Python</li>
                     <li><i class="devicon-nodejs-plain colored"></i> Node.js</li>
-                    <li><i class="devicon-angular-plain colored"></i> Angular / Angular CLI</li>
-                    <li><i class="devicon-typescript-plain colored"></i> TypeScript</li>
+                    <li><span data-i18n="skills.backend.restapi">REST APIs</span></li>
+                    <li><span data-i18n="skills.backend.auth">Authentication</span></li>
+                    <li><i class="devicon-postgresql-plain colored"></i> PostgreSQL</li>
+                    <li>H2 Database</li>
+                    <li><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS Cloud Foundations</li>
+                </ul>
+
+                <h3 class="skills-cat" data-i18n="skills.cat.frontend">Frontend</h3>
+                <ul class="skills-icons" role="list">
                     <li><i class="devicon-html5-plain colored"></i> HTML5</li>
                     <li><i class="devicon-css3-plain colored"></i> CSS3</li>
-                    <li><i class="devicon-spring-plain colored"></i> Spring Boot</li>
-                    <li><i class="devicon-postgresql-plain colored"></i> PostgreSQL / SQL Databases</li>
-                    <li><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS Cloud Foundations</li>
-                    <li><i class="devicon-git-plain colored"></i> Git & GitHub</li>
-                    <!-- Metrology & Optical Metrology -->
-                    <li>
-                        <svg class="skill-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <!-- lente -->
-                            <circle cx="10" cy="10" r="5.5"></circle>
-                            <!-- cabo -->
-                            <line x1="13.5" y1="13.5" x2="19" y2="19"></line>
-                            <!-- alvo suave no centro (metrologia/precisão) -->
-                            <circle cx="10" cy="10" r="2.5"></circle>
-                        </svg>
-                        Metrology & Optical Metrology
-                    </li>
+                    <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
+                    <li><i class="devicon-typescript-plain colored"></i> TypeScript</li>
+                    <li><i class="devicon-angular-plain colored"></i> Angular / Angular CLI</li>
+                    <li>PrimeNG</li>
+                    <li><span data-i18n="skills.frontend.responsive">Responsive UI</span></li>
+                </ul>
 
-                    <!-- Data Structures & Algorithms -->
+                <h3 class="skills-cat" data-i18n="skills.cat.database">Database</h3>
+                <ul class="skills-icons" role="list">
+                    <li><i class="devicon-postgresql-plain colored"></i> PostgreSQL</li>
+                    <li><span data-i18n="skills.db.modeling">Data modeling</span></li>
+                    <li>SQL</li>
+                </ul>
+
+                <h3 class="skills-cat" data-i18n="skills.cat.tools">Tools</h3>
+                <ul class="skills-icons" role="list">
+                    <li><i class="devicon-git-plain colored"></i> Git &amp; GitHub</li>
+                    <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
+                    <li>Power BI</li>
+                </ul>
+
+                <h3 class="skills-cat" data-i18n="skills.cat.other">Other competencies</h3>
+                <ul class="skills-icons" role="list">
+                    <li><span data-i18n="skills.other.fullstack">Full-stack development</span></li>
+                    <li><span data-i18n="skills.other.automation">Process automation</span></li>
+                    <li><span data-i18n="skills.other.integration">Systems integration</span></li>
+                    <li><span data-i18n="skills.other.architecture">Software architecture</span></li>
+                    <li><span data-i18n="skills.other.patterns">Design patterns (Factory, Decorator, Observer,
+                            Template Method)</span></li>
                     <li>
                         <svg class="skill-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <!-- arestas do grafo -->
                             <line x1="6" y1="6" x2="18" y2="6"></line>
                             <line x1="6" y1="6" x2="12" y2="18"></line>
                             <line x1="18" y1="6" x2="12" y2="18"></line>
-                            <!-- nós -->
                             <circle cx="6" cy="6" r="2.5"></circle>
                             <circle cx="18" cy="6" r="2.5"></circle>
                             <circle cx="12" cy="18" r="2.5"></circle>
                         </svg>
-                        Data Structures & Algorithms
+                        <span data-i18n="skills.other.dsa">Data structures &amp; algorithms</span>
+                    </li>
+                    <li>
+                        <svg class="skill-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="10" cy="10" r="5.5"></circle>
+                            <line x1="13.5" y1="13.5" x2="19" y2="19"></line>
+                            <circle cx="10" cy="10" r="2.5"></circle>
+                        </svg>
+                        <span data-i18n="skills.other.metrology">Optical metrology</span>
                     </li>
                 </ul>
 
-                <h2 style="margin-top:3rem;">Soft Skills</h2>
+                <h2 style="margin-top:3rem;" data-i18n="skills.softTitle">Soft Skills</h2>
                 <ul class="skills-soft" role="list">
-                    <li>Written Communication</li>
-                    <li>Critical Thinking</li>
-                    <li>Problem Solving</li>
-                    <li>Oral Communication & Presentation</li>
-                    <li>Adaptability</li>
-                    <li>Agile Methodologies</li>
-                    <li>Team Collaboration</li>
-                    <li>Languages: Portuguese (Native), English (Fluent), Spanish (Advanced), German (Intermediate - A2)
-                    </li>
+                    <li data-i18n="skills.soft.written">Written communication</li>
+                    <li data-i18n="skills.soft.critical">Critical thinking</li>
+                    <li data-i18n="skills.soft.problem">Problem solving</li>
+                    <li data-i18n="skills.soft.oral">Oral communication &amp; presentation</li>
+                    <li data-i18n="skills.soft.adapt">Adaptability</li>
+                    <li data-i18n="skills.soft.agile">Agile methodologies</li>
+                    <li data-i18n="skills.soft.team">Team collaboration</li>
                 </ul>
-                <h2 class="with-accent">Languages</h2>
+
+                <h2 class="with-accent" data-i18n="skills.langTitle">Languages</h2>
 
                 <div class="lang-container">
                     <div class="lang-grid">
@@ -243,31 +269,31 @@
                             <span class="fi fi-us" role="img" aria-label="United States flag"></span>
                             <div>
                                 <div class="lang-name">English</div>
-                                <div class="lang-level">Fluent</div>
+                                <div class="lang-level" data-i18n="lang.level.fluent">Fluent</div>
                             </div>
                         </article>
 
                         <article class="lang-card">
                             <span class="fi fi-de" role="img" aria-label="Germany flag"></span>
                             <div>
-                                <div class="lang-name">German</div>
-                                <div class="lang-level">A2</div>
+                                <div class="lang-name">Deutsch</div>
+                                <div class="lang-level" data-i18n="lang.level.intermediate">Intermediate (A2)</div>
                             </div>
                         </article>
 
                         <article class="lang-card">
                             <span class="fi fi-ar" role="img" aria-label="Argentina flag"></span>
                             <div>
-                                <div class="lang-name">Spanish</div>
-                                <div class="lang-level">Advanced</div>
+                                <div class="lang-name">Español</div>
+                                <div class="lang-level" data-i18n="lang.level.advanced">Advanced</div>
                             </div>
                         </article>
 
                         <article class="lang-card">
                             <span class="fi fi-br" role="img" aria-label="Brazil flag"></span>
                             <div>
-                                <div class="lang-name">Portuguese</div>
-                                <div class="lang-level">Native</div>
+                                <div class="lang-name">Português</div>
+                                <div class="lang-level" data-i18n="lang.level.native">Native</div>
                             </div>
                         </article>
                     </div>

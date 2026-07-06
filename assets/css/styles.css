@@ -287,6 +287,15 @@ a:hover {
     vertical-align: middle;
 }
 
+.skills-cat {
+    margin: 1.5rem 0 .5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    font-family: var(--mono);
+}
+
 .skills-soft {
     list-style: disc;
     padding-left: 1.5rem;
