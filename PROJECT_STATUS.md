@@ -8,7 +8,9 @@
 > depois de mudanças grandes.
 
 > Última atualização: 2026-07-07 (sessão de reforma completa do site: i18n,
-> tema, novas seções, e ajustes de conteúdo pós-implantação)
+> tema, novas seções, ajustes de conteúdo pós-implantação, mapeamento via
+> graphify e timeline de Experience completada com FIEG + SENAI ZEISS
+> Metrologia)
 
 ## Próximos passos
 
@@ -111,6 +113,26 @@ problemas críticos. Merge feito via fast-forward para `main`.
 - Corrigida a URL canônica/`og:url` no `<head>`, que apontava para um
   domínio incorreto (`gabrielnunes.github.io`) — agora aponta para a URL
   real do GitHub Pages deste repositório.
+- README.md, PROJECT_STATUS.md e mapeamento do projeto via `graphify`
+  (57 nós, 52 arestas, 15 comunidades) adicionados — ver `graphify-out/`.
+
+### Timeline de Experience completada (a partir do CV real)
+
+A timeline tinha só 2 marcos (SENAI FATESG + ZEISS Alemanha), mas o CV
+completo do usuário mostra uma progressão de 4 etapas até a Alemanha.
+Adicionados os 2 estágios que faltavam, na ordem cronológica correta:
+
+- **FIEG** (Federação das Indústrias do Estado de Goiás) — Estagiário de
+  Engenharia de Software, jun/2024 – dez/2024 (7 meses). Etapa do processo
+  seletivo do SENAI para o intercâmbio internacional na ZEISS.
+- **SENAI ZEISS Centro de Excelência em Metrologia** — Estagiário de
+  Desenvolvimento Web e Metrologia, jan/2025 – set/2025 (9 meses), Goiânia.
+  Desenvolvimento web + operação de equipamentos de metrologia de precisão
+  (Duramax, O-Inspect, Prismo, Bosello Max) — o estágio imediatamente
+  anterior à ida para a Alemanha.
+
+Timeline final: SENAI FATESG (educação, em andamento) → FIEG → SENAI ZEISS
+Metrologia → ZEISS Alemanha (destaque).
 
 ## Bugs encontrados e corrigidos (registro rápido)
 
