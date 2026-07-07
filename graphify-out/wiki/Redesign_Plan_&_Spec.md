@@ -1,11 +1,11 @@
-# Theme Toggle Concept
+# Redesign Plan & Spec
 
 > 2 nodes · cohesion 1.00
 
 ## Key Concepts
 
-- **Manual Light/Dark Theme Toggle** (1 connections) — `PROJECT_STATUS.md`
-- **Theme Architecture (spec)** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Portfolio Redesign Implementation Plan** (1 connections) — `docs/superpowers/plans/2026-07-06-portfolio-redesign.md`
+- **Portfolio Redesign Design Spec** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
 
 ## Relationships
 
@@ -13,7 +13,7 @@
 
 ## Source Files
 
-- `PROJECT_STATUS.md`
+- `docs/superpowers/plans/2026-07-06-portfolio-redesign.md`
 - `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
 
 ## Audit Trail

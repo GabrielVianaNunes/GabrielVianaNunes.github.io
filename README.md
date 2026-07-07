@@ -3,7 +3,7 @@
 Site pessoal de portfólio e currículo. Página única, estática (HTML/CSS/JS
 puro, sem build tools), com 4 idiomas e tema claro/escuro.
 
-**Site publicado:** https://gabrielviananunes.github.io/gabrielviananunes/
+**Site publicado:** https://gabrielviananunes.github.io/
 
 ## Stack
 

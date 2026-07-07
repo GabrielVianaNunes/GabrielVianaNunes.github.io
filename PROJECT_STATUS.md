@@ -27,12 +27,17 @@
       `assets/js/i18n.js` (`projects.ultralino.*`).
 - [ ] Confirmar se a previsão de conclusão do curso (final de 2026) na seção
       Experience ainda está correta perto da formatura.
-- [ ] Quando aprovar o resultado, dar `git push` (nada foi enviado ao GitHub
-      ainda — 20+ commits locais aguardando aprovação).
+- [x] ~~Dar `git push` quando aprovar o resultado~~ — feito em 2026-07-07.
+- [x] ~~Renomear o repositório para ficar com URL limpa~~ — repositório
+      renomeado para `GabrielVianaNunes.github.io` (público), URL final:
+      `https://gabrielviananunes.github.io/`.
+- [ ] Ativar o GitHub Pages nas configurações do repositório (Settings →
+      Pages → Branch `main` → pasta `/ (root)`) para o site ficar no ar.
 - [ ] Depois do primeiro deploy real no GitHub Pages, conferir se a URL
-      `https://gabrielviananunes.github.io/gabrielviananunes/` está
-      respondendo e se `assets/img/og-image.png` renderiza bem em previews
-      de link (WhatsApp/LinkedIn/Twitter).
+      `https://gabrielviananunes.github.io/` está respondendo e se
+      `assets/img/og-image.png` renderiza bem em previews de link
+      (WhatsApp/LinkedIn/Twitter) — lembrando que esse arquivo está vazio
+      (0 bytes), ver item acima.
 
 ---
 
@@ -47,7 +52,8 @@
 | Seções de conteúdo | ✅ Pronto | Hero, Sobre, Experience (novo), Skills (reorganizado), Projects (case studies), Contato |
 | Ícones das competências | ✅ Pronto | Todos os itens de Skills têm ícone (devicon ou SVG próprio) |
 | Dados de contato reais | ✅ Pronto | E-mail, LinkedIn, GitHub, CV — todos conferidos byte a byte |
-| Deploy no GitHub | ⏳ Pendente | Aguardando aprovação final do usuário para `git push` |
+| Push para o GitHub | ✅ Feito | Repositório renomeado para `GabrielVianaNunes.github.io` (público), URL final `https://gabrielviananunes.github.io/` |
+| GitHub Pages ativo | ⏳ Pendente | Falta habilitar em Settings → Pages |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 

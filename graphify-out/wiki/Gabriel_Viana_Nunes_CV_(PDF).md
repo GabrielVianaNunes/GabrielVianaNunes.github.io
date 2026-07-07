@@ -2,7 +2,7 @@
 
 > God node · 5 connections · `assets/cv/Gabriel-Viana-Nunes-CV.pdf`
 
-**Community:** [Experience & CV Background](Experience_%26_CV_Background.md)
+**Community:** [Experience Timeline & CV](Experience_Timeline_%26_CV.md)
 
 ## Connections by Relation
 
