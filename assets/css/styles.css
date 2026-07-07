@@ -266,10 +266,11 @@ a:hover {
 .skills-icons {
     list-style: none;
     display: grid;
-    gap: 1rem;
+    align-items: start;
+    gap: 1rem 1.5rem;
     padding: 0;
     margin: 2rem 0;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .skills-icons li {
