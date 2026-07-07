@@ -287,6 +287,11 @@ a:hover {
     vertical-align: middle;
 }
 
+/* devicon define o ícone do Angular como branco (#fff), invisível no tema claro */
+.skills-icons .devicon-angular-plain.colored {
+    color: #dd0031;
+}
+
 .skills-cat {
     margin: 1.5rem 0 .5rem;
     font-size: 1rem;
