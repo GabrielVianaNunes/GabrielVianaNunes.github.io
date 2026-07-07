@@ -12,6 +12,11 @@
 
 ## Próximos passos
 
+- [ ] **`assets/img/favicon.png` e `assets/img/og-image.png` estão vazios (0
+      bytes)** — encontrado ao rodar o graphify (extração de imagem falhou
+      por não haver conteúdo). O favicon não aparece na aba do navegador e a
+      prévia do link em redes sociais (WhatsApp/LinkedIn/Twitter) fica
+      quebrada. Precisa gerar/colocar os arquivos reais nesses caminhos.
 - [ ] Trocar `assets/img/profile.jpg` por uma foto mais profissional (a atual
       é uma selfie casual) — layout já preparado para receber o arquivo no
       mesmo caminho, sem precisar mexer em código.
