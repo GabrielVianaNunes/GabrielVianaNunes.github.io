@@ -46,6 +46,7 @@
 </head>
 
 <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <a class="skip-link" href="#conteudo" data-i18n="skip.link">Skip to content</a>
 
     <header class="site-header" role="banner">
@@ -149,7 +150,7 @@
             <div class="container">
                 <h2 data-i18n="experience.title">Experience</h2>
                 <ol class="timeline" role="list">
-                    <li class="timeline-item" data-reveal>
+                    <li class="timeline-item">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <div class="timeline-body">
                             <p class="timeline-period" data-i18n="experience.senai.period">2023 — Expected late 2026
@@ -161,7 +162,7 @@
                             </p>
                         </div>
                     </li>
-                    <li class="timeline-item" data-reveal>
+                    <li class="timeline-item">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <div class="timeline-body">
                             <p class="timeline-period" data-i18n="experience.fieg.period">Jun 2024 — Dec 2024 · 7
@@ -174,7 +175,7 @@
                             </p>
                         </div>
                     </li>
-                    <li class="timeline-item" data-reveal>
+                    <li class="timeline-item">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <div class="timeline-body">
                             <p class="timeline-period" data-i18n="experience.senaizeiss.period">Jan 2025 — Sep 2025 ·
@@ -188,7 +189,7 @@
                             </p>
                         </div>
                     </li>
-                    <li class="timeline-item timeline-item--featured" data-reveal>
+                    <li class="timeline-item timeline-item--featured">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <div class="timeline-body">
                             <p class="timeline-period" data-i18n="experience.zeiss.period">Oct 2025 — Apr 2026 · 6
@@ -424,7 +425,7 @@
             <div class="container">
                 <h2 data-i18n="projects.title">Projects</h2>
 
-                <article class="case-study case-study--featured" data-reveal>
+                <article class="case-study case-study--featured">
                     <h3 data-i18n="projects.senai.title">Metrology Lab Management System</h3>
                     <div class="case-body">
                         <div>
@@ -459,7 +460,7 @@
                 </article>
 
                 <div class="cards">
-                    <article class="card" data-reveal>
+                    <article class="card">
                         <span class="case-badge" data-i18n="projects.ultralino.badge">In progress</span>
                         <h3 data-i18n="projects.ultralino.title">Ultralino</h3>
                         <p data-i18n="projects.ultralino.desc">
@@ -502,6 +503,9 @@
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/i18n.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="assets/js/scroll-effects.js" defer></script>
 </body>
 
 </html>
