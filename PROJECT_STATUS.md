@@ -7,10 +7,29 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-07 (sessão de reforma completa do site: i18n,
-> tema, novas seções, ajustes de conteúdo pós-implantação, mapeamento via
-> graphify e timeline de Experience completada com FIEG + SENAI ZEISS
-> Metrologia)
+> Última atualização: 2026-07-08 (feature de scroll storytelling/motion em
+> andamento — pausada de propósito após a Task 1, ver abaixo)
+
+## 🚧 Trabalho em andamento — retomar em nova conversa
+
+**Feature:** Scroll storytelling e efeitos de movimento (GSAP/ScrollTrigger:
+barra de progresso, parallax por seção, animações em cascata, timeline se
+desenhando ao rolar).
+
+- **Spec:** `docs/superpowers/specs/2026-07-08-scroll-storytelling-design.md`
+- **Plano:** `docs/superpowers/plans/2026-07-08-scroll-storytelling.md` (8 tarefas)
+- **Worktree:** `.worktrees/scroll-storytelling` (branch `scroll-storytelling`)
+- **Progresso:** Task 1/8 concluída e revisada (aprovada, sem pendências).
+  Tasks 2–8 ainda não iniciadas.
+- **Ledger:** `.worktrees/scroll-storytelling/.superpowers/sdd/progress.md`
+  (histórico de commits e resultado de cada revisão até agora)
+
+**Para continuar em outra conversa**, basta pedir algo como: *"Continue a
+implementação do plano de scroll storytelling — Task 2 em diante, worktree
+já existe em `.worktrees/scroll-storytelling`"*. A skill
+`subagent-driven-development` vai ler o ledger acima, ver que a Task 1 já
+está com commit e revisão limpa, e retomar direto na Task 2 sem refazer
+nada. Não é preciso reexplicar o design — está tudo no spec e no plano.
 
 ## Próximos passos
 
@@ -53,7 +72,8 @@
 | Ícones das competências | ✅ Pronto | Todos os itens de Skills têm ícone (devicon ou SVG próprio) |
 | Dados de contato reais | ✅ Pronto | E-mail, LinkedIn, GitHub, CV — todos conferidos byte a byte |
 | Push para o GitHub | ✅ Feito | Repositório renomeado para `GabrielVianaNunes.github.io` (público), URL final `https://gabrielviananunes.github.io/` |
-| GitHub Pages ativo | ⏳ Pendente | Falta habilitar em Settings → Pages |
+| GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
+| Scroll storytelling / motion (GSAP) | 🚧 Em andamento (1/8 tarefas) | Ver "Trabalho em andamento" no topo deste arquivo — branch `scroll-storytelling` |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -139,6 +159,30 @@ Adicionados os 2 estágios que faltavam, na ordem cronológica correta:
 
 Timeline final: SENAI FATESG (educação, em andamento) → FIEG → SENAI ZEISS
 Metrologia → ZEISS Alemanha (destaque).
+
+## Sessão scroll storytelling (2026-07-08)
+
+- Explicado ao usuário o problema do favicon/og-image vazios e o que é uma
+  foto de perfil "mais profissional" (enquadramento, iluminação, roupa) —
+  nenhuma mudança de código, só orientação; os itens continuam pendentes em
+  "Próximos passos".
+- Brainstorm + spec + plano para a próxima grande feature: efeitos de
+  scroll (GSAP/ScrollTrigger) evoluindo o visual minimalista atual com mais
+  movimento, sem mudar cores/tipografia/layout. Decisões chave do usuário:
+  manter a base minimalista (não redesenhar visualmente), usar GSAP via CDN
+  (não 100% vanilla), focar só em "scroll storytelling avançado" (cascata +
+  parallax + timeline se desenhando) — ficaram de fora dessa rodada:
+  botões magnéticos, tilt 3D nos cards, transição animada do tema, elemento
+  tipo terminal.
+- Spec: `docs/superpowers/specs/2026-07-08-scroll-storytelling-design.md`.
+  Plano: `docs/superpowers/plans/2026-07-08-scroll-storytelling.md` (8
+  tarefas, execução via subagent-driven-development, worktree
+  `.worktrees/scroll-storytelling`).
+- Task 1 (fundação: GSAP/ScrollTrigger via CDN, barra de progresso,
+  remoção do sistema antigo de fade-in `data-reveal`) concluída e revisada
+  — aprovada sem pendências. Commits `66da870..3af6b5d` na branch
+  `scroll-storytelling`. Pausado aqui a pedido do usuário — ver "Trabalho
+  em andamento" no topo deste arquivo para retomar.
 
 ## Bugs encontrados e corrigidos (registro rápido)
 
