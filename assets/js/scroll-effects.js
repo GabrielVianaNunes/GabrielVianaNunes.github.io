@@ -37,7 +37,31 @@
             });
         }
 
+        function revealGroup(container, itemSelector, staggerAmount) {
+            if (!container) return;
+            var items = container.querySelectorAll(itemSelector);
+            if (!items.length) return;
+            if (prefersReduced) {
+                items.forEach(function (el) { el.style.opacity = 1; });
+                return;
+            }
+            gsap.set(items, { opacity: 0, y: 16 });
+            gsap.to(items, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                stagger: staggerAmount || 0.07,
+                scrollTrigger: {
+                    trigger: container,
+                    start: 'top 85%',
+                    once: true
+                }
+            });
+        }
+
         initProgressBar();
         initParallax();
+        revealGroup(document.querySelector('.hero .container'), '.badge, h1, .lead, .location, .cta', 0.1);
     });
 })();
