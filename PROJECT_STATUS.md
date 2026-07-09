@@ -7,8 +7,8 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (scroll storytelling e efeitos interativos
-> mesclados para `main` e publicados no GitHub)
+> Última atualização: 2026-07-09 (6/6 tarefas dos efeitos mobile concluídas e
+> auditadas na branch `mobile-effects`, ainda não mesclada para `main`)
 
 ## Próximos passos
 
@@ -40,6 +40,9 @@
       `assets/img/og-image.png` renderiza bem em previews de link
       (WhatsApp/LinkedIn/Twitter) — lembrando que esse arquivo está vazio
       (0 bytes), ver item acima.
+- [ ] Mesclar a branch `mobile-effects` para `main` (as 6 tarefas do plano
+      de efeitos mobile estão completas e auditadas, worktree em
+      `.worktrees/mobile-effects`) — ver "Sessão efeitos mobile" abaixo.
 
 ---
 
@@ -57,7 +60,8 @@
 | Push para o GitHub | ✅ Feito | Repositório renomeado para `GabrielVianaNunes.github.io` (público), URL final `https://gabrielviananunes.github.io/` |
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
 | Scroll storytelling / motion (GSAP) | ✅ Pronto e mesclado | 8/8 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão scroll storytelling" abaixo. |
-| Efeitos interativos (botões magnéticos, tilt 3D, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. |
+| Efeitos interativos (botões magnéticos, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. O tilt 3D nos cards implementado nessa sessão foi removido depois, ver "Sessão efeitos mobile". |
+| Efeitos mobile (menu animado, tap feedback, parallax mobile, tilt por giroscópio) | ✅ Pronto, auditado, aguardando merge | 6/6 tarefas, auditoria final aprovada em 2026-07-09, branch `mobile-effects` ainda não mesclada para `main` — ver "Sessão efeitos mobile" abaixo. |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -315,8 +319,127 @@ individualmente antes da próxima:
   mescladas para `main` (fast-forward) em 2026-07-09. Worktree e branch
   `interactive-effects` removidos após o merge.
 
+## Sessão efeitos mobile (2026-07-09)
+
+Brainstorm + spec + plano para trazer os efeitos de interação para toque/
+mobile-nativo, já que as rodadas anteriores (scroll storytelling, efeitos
+interativos) eram desktop-first (`hover`/`mousemove`). Spec:
+`docs/superpowers/specs/2026-07-09-mobile-effects-design.md`. Plano:
+`docs/superpowers/plans/2026-07-09-mobile-effects.md` (6 tarefas, execução
+via `subagent-driven-development`, worktree `.worktrees/mobile-effects`),
+cada tarefa implementada e revisada individualmente antes da próxima:
+
+**Observação importante:** antes desse plano começar, o tilt 3D nos cards de
+Projects (`initCardTilt`, implementado na "Sessão efeitos interativos"
+acima) foi **removido** (commit `b4b5a69`, "Remove efeito de tilt 3D dos
+cards de Projects") — decisão do usuário, fora do escopo deste plano. O tilt
+por giroscópio da Task 5 abaixo é um efeito novo e independente para
+dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
+3D antigo baseado em `mousemove` — os dois nunca coexistiram no código.
+
+1. **Morph do ícone hambúrguer (Task 1)** — CSS puro em
+   `assets/css/styles.css`: `.nav-toggle-bar` ganhou `transition` e três
+   regras `.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(n)`
+   que giram as barras 1/3 em ±45° e escondem a barra do meio, formando um
+   X. Não depende de JS novo — só lê o `aria-expanded` que `initMobileNav`
+   já definia.
+2. **Cascata de revelação dos itens do menu (Task 2)** — primeira mudança em
+   `assets/js/main.js` nas três rodadas de efeitos: `initMobileNav` agora
+   dispara `gsap.to(menuItems, {opacity, y, stagger: 0.05, ...})` ao abrir o
+   menu (`if (isOpen && window.gsap && !prefersReduced)`), com os itens
+   entrando em cascata em vez de aparecerem todos de uma vez.
+3. **Tap feedback em botões e cards (Task 3)** — `.btn:active` e
+   `.case-study:active`/`.card:active` em `assets/css/styles.css` (escala
+   sutil ao toque, sem guarda de `canHover` — `:active` funciona
+   universalmente e é inerte em dispositivos sem toque). Um workaround de
+   uma linha (`initTouchActiveWorkaround`, `touchstart` passivo) foi
+   adicionado em `interactive-effects.js` para o Safari iOS reconhecer
+   `:active` (bug conhecido do WebKit).
+4. **Parallax reativado no mobile (Task 4)** — `initParallax` em
+   `assets/js/scroll-effects.js` ganhou um `offsetFactor` (`isMobile ? 0.1
+   : 0.2`), reativando o efeito em telas ≤768px na metade da intensidade do
+   desktop (estava totalmente desativado em mobile desde a rodada de scroll
+   storytelling).
+5. **Tilt por giroscópio nos cards de Projects (Task 5)** — `initGyroTilt()`
+   novo em `interactive-effects.js`: em dispositivos touch (`canHover ===
+   false`), os cards `#projetos .case-study`/`.card` inclinam em 3D
+   (`rotationX`/`rotationY` via `gsap.quickTo`) seguindo o `deviceorientation`
+   do aparelho, com calibração por baseline (primeiro evento define a
+   posição neutra, eventos seguintes calculam delta em relação a ela,
+   limitado a ±45° e mapeado para ±2° de rotação). Inclui o fluxo de
+   permissão do iOS (`DeviceOrientationEvent.requestPermission`): um botão
+   `.gyro-permission-btn` (markup em `index.html`, i18n em `i18n.js`) só
+   aparece em navegadores que exigem a permissão explícita, chamando
+   `attach()` apenas se o usuário conceder. **Bug encontrado e corrigido
+   nessa tarefa:** `.gyro-permission-btn[hidden] { display: none; }` — a
+   regra base do botão tinha a mesma especificidade CSS que a regra
+   `[hidden]` do UA stylesheet do navegador, e por ordem de origem a regra
+   do autor vencia, deixando o botão visível mesmo com `hidden="true"`.
+6. **Auditoria final (Task 6, esta sessão)** — three-pass completo:
+   - **Reduced-motion (inspeção de código):** confirmado que a cascata do
+     menu só roda dentro de `if (isOpen && window.gsap && !prefersReduced)`;
+     `initGyroTilt` retorna antes de qualquer listener quando
+     `prefersReduced` é `true` (`if (!window.gsap || canHover ||
+     prefersReduced) return;`); `initParallax` continua com o guard
+     `if (prefersReduced) return;` intacto após a edição da Task 4; a regra
+     global `@media (prefers-reduced-motion: reduce) { * {
+     transition-duration: 0.001ms !important; ... } }` em
+     `assets/css/styles.css` segue intacta e não foi tocada por nenhuma das
+     5 tarefas — cobre o morph do ícone e o tap feedback, que são só CSS
+     `transition`.
+   - **Guards de touch/hover (inspeção de código):** confirmado que
+     `initGyroTilt` usa `canHover ||` (polaridade invertida de
+     `initMagneticButtons`, que usa `!canHover`) — nunca roda com mouse
+     conectado; confirmado que `initTouchActiveWorkaround` e as regras CSS
+     `:active` não têm guarda nenhuma, corretamente (tap feedback deve
+     funcionar em qualquer dispositivo que gere toque).
+   - **Regressão completa (via Preview tool, desktop 1280×800 e mobile
+     375×812):** toggle de tema (ida e volta, `data-theme` correto); dropdown
+     de idioma nos 4 idiomas (pt/en/de/es, `<h1>` e `lang` do `<html>`
+     atualizando certo); terminal do Hero (digitação completa sem erros);
+     botões magnéticos (transform muda no `mousemove`, desktop-only,
+     confirmado com `canHover: true`); barra de progresso (`width` do
+     `.scroll-progress` acompanha o scroll); cascatas de revelação (Hero,
+     timeline) com opacidade final `1`; timeline de Experience (itens e
+     linha vertical desenhando corretamente) — nenhuma regressão das 5
+     tarefas deste plano nos efeitos das rodadas anteriores. Menu mobile
+     aberto/fechado 3× seguidas: ícone morfa e cascata replica em toda
+     abertura; link clicado fecha o menu e navega para a seção certa
+     (confirmado via `el.click()` programático — o clique via coordenadas
+     da ferramenta de preview mostrou um resultado inconsistente nessa
+     sessão, tratado como limitação da ferramenta, não bug do código, já
+     que o clique programático no mesmo elemento sempre fechou o menu e
+     navegou corretamente). Parallax comparado matematicamente nos dois
+     viewports usando o `progress`/`sectionHeight` do próprio ScrollTrigger:
+     desktop `y = sectionHeight × 0.2 × progress` e mobile `y =
+     sectionHeight × 0.1 × progress`, ambos batendo exatamente com o valor
+     real aplicado — confirma a metade de intensidade da Task 4. Tilt por
+     giroscópio: caminho Android/não-iOS (sem gate de permissão) testado
+     disparando eventos `deviceorientation` sintéticos contra uma réplica
+     inline da lógica de `initGyroTilt` (mesma limitação de ambiente já
+     registrada na Task 5 — o Preview aqui é Chromium e reporta `canHover:
+     true` mesmo em viewport mobile, então o guard real nunca deixa passar
+     nesse navegador) — delta `beta:20/gamma:15` produziu
+     `rotationX:-0.889`/`rotationY:0.667`, batendo exatamente com a fórmula
+     `±(delta/45)×2`. Botão de permissão do iOS confirmado `hidden`/
+     `display:none` neste navegador (sem `requestPermission`, path direto
+     `attach()`). Rede: todas as requisições da sessão (GSAP, ScrollTrigger,
+     fontes, ícones, flags, assets locais) retornaram `200`/`304`, nenhum
+     `404`. Console: sem erros em nenhuma combinação de
+     tema/idioma/viewport/interação testada.
+   - Nenhum fix de código foi necessário nesta tarefa — a única mudança é
+     esta atualização do `PROJECT_STATUS.md`.
+- **Status:** as 6 tarefas do plano foram completadas e auditadas na branch
+  `mobile-effects` (worktree `.worktrees/mobile-effects`) em 2026-07-09.
+  **Ainda não mesclada para `main`** — merge é uma decisão do usuário, ver
+  "Próximos passos" no topo deste documento.
+
 ## Bugs encontrados e corrigidos (registro rápido)
 
+- `.gyro-permission-btn[hidden]` não escondia o botão: a regra base
+  (`display: inline-block`) empatava em especificidade com o `[hidden]` do
+  UA stylesheet do navegador e vencia por ordem de origem — corrigido com
+  `.gyro-permission-btn[hidden] { display: none; }` explícito.
 - `.tags li` preso em `prefers-color-scheme` em vez de `data-theme`
   (tema manual não afetava os selos das tags de projeto).
 - Itens do dropdown de idioma sem suporte a teclado (`tabindex`,
