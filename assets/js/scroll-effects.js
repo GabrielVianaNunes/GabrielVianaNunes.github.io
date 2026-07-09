@@ -92,5 +92,42 @@
         }
 
         initProjectCards();
+
+        function initTimeline() {
+            document.querySelectorAll('.timeline-item').forEach(function (item) {
+                if (prefersReduced) {
+                    item.style.opacity = 1;
+                    return;
+                }
+                gsap.set(item, { opacity: 0, y: 16 });
+                gsap.to(item, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: item, start: 'top 85%', once: true }
+                });
+            });
+
+            var timeline = document.querySelector('.timeline');
+            var line = document.querySelector('.timeline-line');
+            if (!timeline || !line) return;
+            if (prefersReduced) {
+                line.style.height = '100%';
+                return;
+            }
+            gsap.fromTo(line, { height: '0%' }, {
+                height: '100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: timeline,
+                    start: 'top 70%',
+                    end: 'bottom 60%',
+                    scrub: true
+                }
+            });
+        }
+
+        initTimeline();
     });
 })();
