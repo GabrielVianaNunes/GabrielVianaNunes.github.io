@@ -20,12 +20,13 @@
         }
 
         function initParallax() {
-            if (prefersReduced || isMobile) return;
+            if (prefersReduced) return;
+            var offsetFactor = isMobile ? 0.1 : 0.2;
             document.querySelectorAll('.section-parallax').forEach(function (blob) {
                 var section = blob.parentElement;
                 if (!section) return;
                 gsap.to(blob, {
-                    y: function () { return section.offsetHeight * 0.2; },
+                    y: function () { return section.offsetHeight * offsetFactor; },
                     ease: 'none',
                     scrollTrigger: {
                         trigger: section,
