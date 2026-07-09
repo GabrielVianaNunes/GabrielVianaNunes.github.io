@@ -7,8 +7,8 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (favicon gerado — monograma "GN"; og-image
-> ainda pendente)
+> Última atualização: 2026-07-09 (favicon e og-image gerados — monograma
+> "GN" e card de preview de link, ambos estavam vazios/0 bytes)
 
 ## Próximos passos
 
@@ -19,10 +19,10 @@
 - [x] ~~`assets/img/favicon.png` estava vazio (0 bytes)~~ — gerado um
       monograma "GN" (fundo azul `--primary`, quadrado arredondado 128×128)
       via script Python/Pillow, salvo no mesmo caminho.
-- [ ] **`assets/img/og-image.png` ainda está vazio (0 bytes)** — a prévia do
-      link em redes sociais (WhatsApp/LinkedIn/Twitter) continua quebrada.
-      Sugestão: 1200×630px, nome + cargo + badge ZEISS, identidade visual do
-      site (fundo escuro, detalhes em azul).
+- [x] ~~`assets/img/og-image.png` estava vazio (0 bytes)~~ — gerada uma
+      imagem 1200×630px (fundo escuro, glow azul sutil, monograma GN,
+      badge "Ex-intern at ZEISS · Germany", nome, cargo, localização, URL)
+      via script Python/Pillow, mesma identidade visual do site.
 - [ ] Trocar `assets/img/profile.jpg` por uma foto mais profissional (a atual
       é uma selfie casual) — layout já preparado para receber o arquivo no
       mesmo caminho, sem precisar mexer em código.
@@ -37,11 +37,10 @@
       `https://gabrielviananunes.github.io/`.
 - [ ] Ativar o GitHub Pages nas configurações do repositório (Settings →
       Pages → Branch `main` → pasta `/ (root)`) para o site ficar no ar.
-- [ ] Depois do primeiro deploy real no GitHub Pages, conferir se a URL
-      `https://gabrielviananunes.github.io/` está respondendo e se
-      `assets/img/og-image.png` renderiza bem em previews de link
-      (WhatsApp/LinkedIn/Twitter) — lembrando que esse arquivo está vazio
-      (0 bytes), ver item acima.
+- [ ] Depois do próximo deploy, testar a prévia real do link no
+      WhatsApp/LinkedIn/Twitter (ferramentas como o Facebook Sharing
+      Debugger ajudam a forçar o recache do `og:image` nessas plataformas,
+      já que costumam cachear a prévia antiga por um tempo).
 - [x] ~~Mesclar a branch `mobile-effects` para `main`~~ — feito em 2026-07-09
       (fast-forward), worktree e branch removidos.
 
