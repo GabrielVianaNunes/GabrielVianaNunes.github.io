@@ -7,15 +7,15 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (6/6 tarefas dos efeitos mobile concluídas e
-> auditadas na branch `mobile-effects`, ainda não mesclada para `main`)
+> Última atualização: 2026-07-09 (efeitos mobile mesclados para `main` —
+> branch `mobile-effects` removida após o merge)
 
 ## Próximos passos
 
-- [ ] Ajustar a duração/visibilidade da transição de círculo no toggle de
-      tema (`assets/js/theme.js` / `assets/css/styles.css`,
-      `@keyframes theme-circle-reveal`) — o usuário achou o efeito rápido
-      demais para perceber ao trocar entre claro/escuro.
+- [x] ~~Ajustar a duração/visibilidade da transição de círculo no toggle de
+      tema~~ — testado 0.5s vs 0.8s ao vivo com o usuário; confirmado que
+      0.5s (valor original) já era visível, o problema era cache de
+      navegador/CDN do GitHub Pages, não o código.
 - [ ] **`assets/img/favicon.png` e `assets/img/og-image.png` estão vazios (0
       bytes)** — encontrado ao rodar o graphify (extração de imagem falhou
       por não haver conteúdo). O favicon não aparece na aba do navegador e a
@@ -40,9 +40,8 @@
       `assets/img/og-image.png` renderiza bem em previews de link
       (WhatsApp/LinkedIn/Twitter) — lembrando que esse arquivo está vazio
       (0 bytes), ver item acima.
-- [ ] Mesclar a branch `mobile-effects` para `main` (as 6 tarefas do plano
-      de efeitos mobile estão completas e auditadas, worktree em
-      `.worktrees/mobile-effects`) — ver "Sessão efeitos mobile" abaixo.
+- [x] ~~Mesclar a branch `mobile-effects` para `main`~~ — feito em 2026-07-09
+      (fast-forward), worktree e branch removidos.
 
 ---
 
@@ -61,7 +60,7 @@
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
 | Scroll storytelling / motion (GSAP) | ✅ Pronto e mesclado | 8/8 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão scroll storytelling" abaixo. |
 | Efeitos interativos (botões magnéticos, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. O tilt 3D nos cards implementado nessa sessão foi removido depois, ver "Sessão efeitos mobile". |
-| Efeitos mobile (menu animado, tap feedback, parallax mobile, tilt por giroscópio) | ✅ Pronto, auditado, aguardando merge | 6/6 tarefas, auditoria final aprovada em 2026-07-09, branch `mobile-effects` ainda não mesclada para `main` — ver "Sessão efeitos mobile" abaixo. |
+| Efeitos mobile (menu animado, tap feedback, parallax mobile, tilt por giroscópio) | ✅ Pronto e mesclado | 6/6 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos mobile" abaixo. |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -429,10 +428,9 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
      tema/idioma/viewport/interação testada.
    - Nenhum fix de código foi necessário nesta tarefa — a única mudança é
      esta atualização do `PROJECT_STATUS.md`.
-- **Status:** as 6 tarefas do plano foram completadas e auditadas na branch
-  `mobile-effects` (worktree `.worktrees/mobile-effects`) em 2026-07-09.
-  **Ainda não mesclada para `main`** — merge é uma decisão do usuário, ver
-  "Próximos passos" no topo deste documento.
+- **Status:** as 6 tarefas do plano foram completadas, auditadas e
+  mescladas para `main` (fast-forward) em 2026-07-09. Worktree e branch
+  `mobile-effects` removidos após o merge.
 
 ## Bugs encontrados e corrigidos (registro rápido)
 
