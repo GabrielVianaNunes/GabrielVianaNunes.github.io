@@ -7,8 +7,8 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (tilt por giroscópio removido a pedido do
-> usuário; ícone hambúrguer reposicionado no mobile)
+> Última atualização: 2026-07-09 (favicon gerado — monograma "GN"; og-image
+> ainda pendente)
 
 ## Próximos passos
 
@@ -16,11 +16,13 @@
       tema~~ — testado 0.5s vs 0.8s ao vivo com o usuário; confirmado que
       0.5s (valor original) já era visível, o problema era cache de
       navegador/CDN do GitHub Pages, não o código.
-- [ ] **`assets/img/favicon.png` e `assets/img/og-image.png` estão vazios (0
-      bytes)** — encontrado ao rodar o graphify (extração de imagem falhou
-      por não haver conteúdo). O favicon não aparece na aba do navegador e a
-      prévia do link em redes sociais (WhatsApp/LinkedIn/Twitter) fica
-      quebrada. Precisa gerar/colocar os arquivos reais nesses caminhos.
+- [x] ~~`assets/img/favicon.png` estava vazio (0 bytes)~~ — gerado um
+      monograma "GN" (fundo azul `--primary`, quadrado arredondado 128×128)
+      via script Python/Pillow, salvo no mesmo caminho.
+- [ ] **`assets/img/og-image.png` ainda está vazio (0 bytes)** — a prévia do
+      link em redes sociais (WhatsApp/LinkedIn/Twitter) continua quebrada.
+      Sugestão: 1200×630px, nome + cargo + badge ZEISS, identidade visual do
+      site (fundo escuro, detalhes em azul).
 - [ ] Trocar `assets/img/profile.jpg` por uma foto mais profissional (a atual
       é uma selfie casual) — layout já preparado para receber o arquivo no
       mesmo caminho, sem precisar mexer em código.
