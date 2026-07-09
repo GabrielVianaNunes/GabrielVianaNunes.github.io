@@ -221,10 +221,13 @@ individualmente antes da próxima:
    - Nenhum fix de código foi necessário nesta tarefa — a única mudança é
      esta atualização do `PROJECT_STATUS.md`.
 - **Não-objetivos explícitos do spec** (combinados com o usuário no
-  brainstorm, ver spec) — ainda **não implementados** e não devem ser
-  presumidos como feitos em sessões futuras: botões magnéticos, tilt 3D
-  nos cards, transição animada no toggle de tema, elemento tipo
-  terminal/código digitando.
+  brainstorm, ver spec) — no momento desta sessão (2026-07-08), ainda **não
+  implementados**: botões magnéticos, tilt 3D nos cards, transição animada
+  no toggle de tema, elemento tipo terminal/código digitando.
+  **[SUPERADO em 2026-07-09]** os quatro itens foram implementados na
+  "Sessão efeitos interativos (2026-07-09)" abaixo — ver essa seção para o
+  estado atual; esta nota é apenas histórica e não deve mais ser lida como
+  pendência.
 - **Status:** as 8 tarefas do plano estão completas e revisadas na branch
   `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`). A
   branch ainda não foi mesclada para `main` — decisão de merge fica para o
