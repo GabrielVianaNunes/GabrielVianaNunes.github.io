@@ -7,9 +7,9 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (feature de scroll storytelling/motion
-> concluída — 8/8 tarefas, auditoria final aprovada, ver "Sessão scroll
-> storytelling" abaixo)
+> Última atualização: 2026-07-09 (feature de efeitos interativos concluída —
+> 5/5 tarefas, auditoria final aprovada, ver "Sessão efeitos interativos"
+> abaixo)
 
 ## Próximos passos
 
@@ -54,6 +54,7 @@
 | Push para o GitHub | ✅ Feito | Repositório renomeado para `GabrielVianaNunes.github.io` (público), URL final `https://gabrielviananunes.github.io/` |
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
 | Scroll storytelling / motion (GSAP) | ✅ Pronto (8/8 tarefas, auditoria aprovada) | Branch `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`) — ver "Sessão scroll storytelling" abaixo. Ainda não mesclado para `main`. |
+| Efeitos interativos (botões magnéticos, tilt 3D, transição de tema, terminal) | ✅ Pronto (5/5 tarefas, auditoria aprovada) | Branch `interactive-effects` (worktree `.worktrees/interactive-effects`) — ver "Sessão efeitos interativos" abaixo. Ainda não mesclado para `main`. |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -226,6 +227,87 @@ individualmente antes da próxima:
   terminal/código digitando.
 - **Status:** as 8 tarefas do plano estão completas e revisadas na branch
   `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`). A
+  branch ainda não foi mesclada para `main` — decisão de merge fica para o
+  usuário.
+
+## Sessão efeitos interativos (2026-07-09)
+
+Brainstorm + spec + plano para os quatro itens deixados de fora da rodada de
+scroll storytelling (2026-07-08): botões magnéticos, tilt 3D nos cards,
+transição animada do tema, terminal digitando. Spec:
+`docs/superpowers/specs/2026-07-09-interactive-effects-design.md`. Plano:
+`docs/superpowers/plans/2026-07-09-interactive-effects.md` (5 tarefas,
+execução via `subagent-driven-development`, worktree
+`.worktrees/interactive-effects`), cada tarefa implementada e revisada
+individualmente antes da próxima:
+
+1. **Botões magnéticos (Task 1)** — `assets/js/interactive-effects.js`
+   (módulo novo), `initMagneticButtons()`: todo `.btn` (CTAs do Hero e do
+   rodapé/Contato) é puxado sutilmente na direção do cursor via
+   `gsap.quickTo` conforme o mouse se aproxima, e volta à posição original
+   no `mouseleave`.
+2. **Tilt 3D nos cards de Projects (Task 2)** — `initCardTilt()` no mesmo
+   módulo: os cards `#projetos .case-study`/`.card` (SENAI, Ultralino)
+   inclinam em 3D (`rotationX`/`rotationY` via `gsap.quickTo`) seguindo a
+   posição do cursor, com `transformPerspective`/`transformStyle` para o
+   efeito de profundidade.
+3. **Transição de círculo no toggle de tema (Task 3)** — `assets/js/theme.js`
+   passa a usar a View Transitions API nativa
+   (`document.startViewTransition`) no clique do `.theme-toggle`: um círculo
+   se expande a partir do ponto clicado revelando o novo tema, com fallback
+   direto para `toggleTheme()` quando a API não existe no navegador ou
+   `prefers-reduced-motion` está ativo. CSS novo em `assets/css/styles.css`
+   (`::view-transition-old/new(root)`, `@keyframes theme-circle-reveal`).
+4. **Terminal digitando no Hero (Task 4)** — bloco `.hero-terminal`
+   decorativo (`aria-hidden`) logo abaixo do CTA do Hero, com efeito de
+   máquina de escrever (`initTerminal()`, `setInterval` caractere a
+   caractere) rodando três comandos (`whoami`, `cat stack.txt`,
+   `./status.sh`) com saída i18n'd nos 4 idiomas
+   (`hero.terminal.whoami/stack/status` em `assets/js/i18n.js`). Funciona
+   igual em touch (não depende de `canHover`), só desativado por
+   `prefers-reduced-motion` (mostra o texto final direto, sem digitação).
+5. **Auditoria final (Task 5, esta sessão)** — three-pass completo, sem
+   bugs encontrados (nenhum fix de código foi necessário):
+   - **Reduced-motion:** revisão de código de `initMagneticButtons`,
+     `initCardTilt` e `initTerminal` (`interactive-effects.js`) e do
+     handler de clique do `.theme-toggle` (`theme.js`) — todas retornam
+     antes de qualquer `gsap`/listener/`startViewTransition` quando
+     `prefersReduced` é `true`; o handler de tema lê `prefers-reduced-motion`
+     de forma fresca a cada clique (não uma constante de módulo), cobrindo o
+     caso do usuário mudar a preferência do SO entre carregamentos.
+   - **Touch/coarse-pointer:** confirmado por inspeção de código que
+     `initMagneticButtons`/`initCardTilt` checam `canHover` (calculado uma
+     vez via `matchMedia('(hover: hover) and (pointer: fine)')`) e que
+     `initTerminal` **não** checa `canHover`, rodando igual em touch.
+   - **Regressão completa (desktop, via Preview tool):** toggle de tema
+     testado ida e volta (`data-theme` flipando corretamente, botões/
+     terminal/cards recolorindo, sem erros de console); dropdown de idioma
+     testado em `de`/`es`/`en`/`pt` — as três linhas de saída do terminal
+     atualizam certo em cada idioma, sem reiniciar a digitação nem
+     re-esconder linhas já reveladas; botões magnéticos (`transform`
+     muda no `mousemove`, volta a `matrix(1,0,0,1,0,0)` no `mouseleave`) e
+     tilt dos cards (`matrix3d` no `mousemove`, volta ao estado de repouso
+     no `mouseleave`) re-testados com as quatro tarefas já mescladas —
+     confirmado que `.btn` dentro de `.cta`/rodapé e `.case-study`/`.card`
+     de Projects continuam conjuntos disjuntos (nenhum `.btn` dentro de um
+     card), sem interferência entre os dois efeitos; menu hambúrguer mobile
+     e destaque de nav ativo por scroll (`initActiveNav`, não tocado por
+     este plano) testados e funcionando.
+   - **Mobile (375×812):** sem scroll horizontal
+     (`scrollWidth <= clientWidth`); terminal renderiza legível e completa a
+     sequência de digitação normalmente (só os efeitos de hover são
+     desktop-only, o terminal roda igual).
+   - **Rede/console:** todas as requisições da sessão retornaram `200`/`304`
+     (GSAP, ScrollTrigger, fontes, ícones, flags, todos os assets locais) —
+     nenhum `404`; console sem erros em nenhuma combinação de
+     tema/idioma/viewport testada.
+   - Nenhum fix de código foi necessário nesta tarefa — a única mudança é
+     esta atualização do `PROJECT_STATUS.md`.
+- **Não-objetivos do spec de 2026-07-08** (botões magnéticos, tilt 3D nos
+  cards, transição animada do tema, terminal digitando) — **todos
+  implementados agora**, não ficam mais pendentes.
+- **Status:** as 5 tarefas do plano estão completas e revisadas na branch
+  `interactive-effects` (worktree `.worktrees/interactive-effects`). A
   branch ainda não foi mesclada para `main` — decisão de merge fica para o
   usuário.
 
