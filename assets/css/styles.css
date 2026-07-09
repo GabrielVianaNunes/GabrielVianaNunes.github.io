@@ -783,7 +783,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 }
 
 ::view-transition-new(root) {
-    animation: theme-circle-reveal .5s ease forwards;
+    animation: theme-circle-reveal .8s ease-in-out forwards;
     clip-path: circle(0px at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
 }
 
