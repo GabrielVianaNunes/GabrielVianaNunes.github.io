@@ -39,9 +39,11 @@ assets/
   js/
     theme.js                toggle claro/escuro (localStorage + FOUC guard)
     i18n.js                  motor de traduções PT/EN/DE/ES + dropdown de idioma
-    main.js                   menu mobile, destaque de nav ativo
+    main.js                   menu mobile (com animação de abertura), destaque de nav ativo
     scroll-effects.js         efeitos de scroll via GSAP/ScrollTrigger (barra
                                de progresso, parallax, cascatas, timeline)
+    interactive-effects.js    botões magnéticos, terminal digitando no Hero,
+                               feedback de toque no mobile
   cv/Gabriel-Viana-Nunes-CV.pdf   currículo para download
   img/                      foto de perfil, favicon, imagem de Open Graph
 docs/

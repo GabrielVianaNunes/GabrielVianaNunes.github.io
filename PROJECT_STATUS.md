@@ -7,8 +7,8 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (efeitos mobile mesclados para `main` —
-> branch `mobile-effects` removida após o merge)
+> Última atualização: 2026-07-09 (tilt por giroscópio removido a pedido do
+> usuário; ícone hambúrguer reposicionado no mobile)
 
 ## Próximos passos
 
@@ -60,7 +60,7 @@
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
 | Scroll storytelling / motion (GSAP) | ✅ Pronto e mesclado | 8/8 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão scroll storytelling" abaixo. |
 | Efeitos interativos (botões magnéticos, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. O tilt 3D nos cards implementado nessa sessão foi removido depois, ver "Sessão efeitos mobile". |
-| Efeitos mobile (menu animado, tap feedback, parallax mobile, tilt por giroscópio) | ✅ Pronto e mesclado | 6/6 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos mobile" abaixo. |
+| Efeitos mobile (menu animado, tap feedback, parallax mobile) | ✅ Pronto e mesclado | 6/6 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos mobile" abaixo. O tilt por giroscópio implementado nessa sessão foi removido depois a pedido do usuário (não gostou do efeito). |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -431,6 +431,25 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
 - **Status:** as 6 tarefas do plano foram completadas, auditadas e
   mescladas para `main` (fast-forward) em 2026-07-09. Worktree e branch
   `mobile-effects` removidos após o merge.
+
+## Ajustes pós-merge dos efeitos mobile (2026-07-09, direto na `main`)
+
+- **Ícone hambúrguer reposicionado:** no mobile, `.nav` usa
+  `justify-content: space-between`, então com o menu fechado (`.menu` some
+  via `display:none`) sobravam só 3 itens visíveis (logo, hambúrguer,
+  controles de idioma/tema) — o `space-between` distribuía o hambúrguer
+  visualmente no centro do header em vez de perto do logo. Corrigido com
+  `justify-content: flex-start` no `.nav` (mobile) + `margin-left: auto` em
+  `.nav-controls` para empurrar idioma/tema pra direita, e um pequeno
+  `margin-left` no `.nav-toggle` pra dar espaço do logo.
+- **Tilt por giroscópio removido:** o usuário testou no celular e não
+  gostou do efeito. Removido por completo: `initGyroTilt()` (e o helper
+  `typeText`/demais funções não tocadas) de `assets/js/interactive-effects.js`,
+  o botão de permissão do iOS (`index.html`, `assets/css/styles.css`), e a
+  chave `projects.gyroPermission` dos 4 idiomas em `assets/js/i18n.js`. A
+  seção Projects volta a não ter nenhum efeito de tilt (nem mouse, nem
+  giroscópio) — apenas o parallax de fundo, a cascata de revelação e o
+  feedback de toque continuam ativos ali.
 
 ## Bugs encontrados e corrigidos (registro rápido)
 
