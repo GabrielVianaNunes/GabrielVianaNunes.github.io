@@ -27,7 +27,7 @@
 
         function initCardTilt() {
             if (!window.gsap || !canHover || prefersReduced) return;
-            var maxTilt = 8;
+            var maxTilt = 4;
             document.querySelectorAll('#projetos .case-study, #projetos .card').forEach(function (card) {
                 gsap.set(card, { transformPerspective: 800, transformStyle: 'preserve-3d' });
                 var rotateXTo = gsap.quickTo(card, 'rotationX', { duration: 0.4, ease: 'power3' });
