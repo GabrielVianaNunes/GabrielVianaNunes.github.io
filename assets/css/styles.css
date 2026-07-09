@@ -212,6 +212,7 @@ a:hover {
     border-radius: .75rem;
     border: 1px solid var(--border);
     font-weight: 600;
+    transition: transform .15s ease;
 }
 
 .btn.primary {
@@ -238,7 +239,7 @@ a:hover {
 }
 
 .btn:active {
-    transform: translateY(1px);
+    transform: scale(0.96) translateY(1px);
 }
 
 /* ========== Seções ========== */
@@ -431,6 +432,7 @@ a:hover {
     border: 1px solid var(--border);
     border-radius: 1rem;
     background: var(--surface);
+    transition: transform .15s ease;
 }
 
 .case-study--featured {
@@ -476,10 +478,16 @@ a:hover {
     border: 1px solid var(--border);
     border-radius: 1rem;
     padding: 1rem;
+    transition: transform .15s ease;
 }
 
 .card h3 {
     margin-top: 0;
+}
+
+.case-study:active,
+.card:active {
+    transform: scale(0.98);
 }
 
 .tags {

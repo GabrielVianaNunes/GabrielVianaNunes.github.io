@@ -25,6 +25,10 @@
             });
         }
 
+        function initTouchActiveWorkaround() {
+            document.addEventListener('touchstart', function () {}, { passive: true });
+        }
+
         function typeText(el, text, charDelay, onDone) {
             var i = 0;
             el.textContent = '';
@@ -69,6 +73,7 @@
             runPair(0);
         }
 
+        initTouchActiveWorkaround();
         initMagneticButtons();
         initTerminal();
     });
