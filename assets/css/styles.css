@@ -561,11 +561,17 @@ html[data-theme="dark"] .tags li {
 
     .nav-toggle {
         display: flex;
+        margin-left: .75rem;
     }
 
     .nav {
         position: relative;
         flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .nav-controls {
+        margin-left: auto;
     }
 
     .menu {
