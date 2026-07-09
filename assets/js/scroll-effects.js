@@ -70,5 +70,27 @@
         });
         revealGroup(document.querySelector('.skills-soft'), 'li', 0.06);
         revealGroup(document.querySelector('.lang-grid'), '.lang-card', 0.08);
+
+        function initProjectCards() {
+            document.querySelectorAll('#projetos .case-study, #projetos .card').forEach(function (card) {
+                var tags = card.querySelectorAll('.tags li');
+                if (prefersReduced) {
+                    card.style.opacity = 1;
+                    tags.forEach(function (t) { t.style.opacity = 1; });
+                    return;
+                }
+                gsap.set(card, { opacity: 0, y: 16 });
+                gsap.set(tags, { opacity: 0, y: 8 });
+                var tl = gsap.timeline({
+                    scrollTrigger: { trigger: card, start: 'top 85%', once: true }
+                });
+                tl.to(card, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+                if (tags.length) {
+                    tl.to(tags, { opacity: 1, y: 0, duration: 0.4, stagger: 0.06, ease: 'power2.out' }, '-=0.2');
+                }
+            });
+        }
+
+        initProjectCards();
     });
 })();
