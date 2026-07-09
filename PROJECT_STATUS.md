@@ -7,29 +7,9 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-08 (feature de scroll storytelling/motion em
-> andamento — pausada de propósito após a Task 1, ver abaixo)
-
-## 🚧 Trabalho em andamento — retomar em nova conversa
-
-**Feature:** Scroll storytelling e efeitos de movimento (GSAP/ScrollTrigger:
-barra de progresso, parallax por seção, animações em cascata, timeline se
-desenhando ao rolar).
-
-- **Spec:** `docs/superpowers/specs/2026-07-08-scroll-storytelling-design.md`
-- **Plano:** `docs/superpowers/plans/2026-07-08-scroll-storytelling.md` (8 tarefas)
-- **Worktree:** `.worktrees/scroll-storytelling` (branch `scroll-storytelling`)
-- **Progresso:** Task 1/8 concluída e revisada (aprovada, sem pendências).
-  Tasks 2–8 ainda não iniciadas.
-- **Ledger:** `.worktrees/scroll-storytelling/.superpowers/sdd/progress.md`
-  (histórico de commits e resultado de cada revisão até agora)
-
-**Para continuar em outra conversa**, basta pedir algo como: *"Continue a
-implementação do plano de scroll storytelling — Task 2 em diante, worktree
-já existe em `.worktrees/scroll-storytelling`"*. A skill
-`subagent-driven-development` vai ler o ledger acima, ver que a Task 1 já
-está com commit e revisão limpa, e retomar direto na Task 2 sem refazer
-nada. Não é preciso reexplicar o design — está tudo no spec e no plano.
+> Última atualização: 2026-07-09 (feature de scroll storytelling/motion
+> concluída — 8/8 tarefas, auditoria final aprovada, ver "Sessão scroll
+> storytelling" abaixo)
 
 ## Próximos passos
 
@@ -73,7 +53,7 @@ nada. Não é preciso reexplicar o design — está tudo no spec e no plano.
 | Dados de contato reais | ✅ Pronto | E-mail, LinkedIn, GitHub, CV — todos conferidos byte a byte |
 | Push para o GitHub | ✅ Feito | Repositório renomeado para `GabrielVianaNunes.github.io` (público), URL final `https://gabrielviananunes.github.io/` |
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
-| Scroll storytelling / motion (GSAP) | 🚧 Em andamento (1/8 tarefas) | Ver "Trabalho em andamento" no topo deste arquivo — branch `scroll-storytelling` |
+| Scroll storytelling / motion (GSAP) | ✅ Pronto (8/8 tarefas, auditoria aprovada) | Branch `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`) — ver "Sessão scroll storytelling" abaixo. Ainda não mesclado para `main`. |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -181,8 +161,73 @@ Metrologia → ZEISS Alemanha (destaque).
 - Task 1 (fundação: GSAP/ScrollTrigger via CDN, barra de progresso,
   remoção do sistema antigo de fade-in `data-reveal`) concluída e revisada
   — aprovada sem pendências. Commits `66da870..3af6b5d` na branch
-  `scroll-storytelling`. Pausado aqui a pedido do usuário — ver "Trabalho
-  em andamento" no topo deste arquivo para retomar.
+  `scroll-storytelling`.
+
+## Sessão scroll storytelling — feature completa + auditoria final (2026-07-09)
+
+Retomada e conclusão das 8 tarefas do plano
+(`docs/superpowers/plans/2026-07-08-scroll-storytelling.md`), todas via
+`subagent-driven-development`, cada uma implementada e revisada
+individualmente antes da próxima:
+
+1. **Fundação (Task 1)** — GSAP + ScrollTrigger via CDN (`gsap@3.12.5`),
+   barra de progresso de leitura (`.scroll-progress`), remoção completa do
+   sistema antigo de fade-in por atributo `data-reveal`.
+2. **Parallax por seção (Task 2)** — blob de fundo sutil (`.section-parallax`)
+   em cada seção principal, movendo-se com `scrub` conforme o scroll.
+   Desativado em mobile (`max-width: 768px`) e com `prefers-reduced-motion`.
+3–5. **Cascata de revelação (Tasks 3–5)** — helper reutilizável
+   `revealGroup(container, itemSelector, staggerAmount)` em
+   `assets/js/scroll-effects.js`, aplicado em Hero, Sobre, Contato e Skills
+   (categorias técnicas, soft skills, idiomas).
+6. **Cards de Projects (Task 6)** — timeline aninhada por card: o card
+   revela primeiro, as tags do card em cascata logo em seguida.
+7. **Timeline de Experience (Task 7)** — cada item revela individualmente
+   ao entrar na viewport; a linha vertical da timeline (`.timeline-line`)
+   se desenha progressivamente (`height: 0% → 100%`) conforme o scroll,
+   com `scrub`.
+8. **Auditoria final (Task 8, esta sessão)** — three-pass completo, sem
+   bugs encontrados (nenhum fix de código foi necessário):
+   - **Reduced-motion:** revisão de código de todas as funções adicionadas
+     nas Tasks 2–7 (`initParallax`, `revealGroup`, `initProjectCards`,
+     `initTimeline`) — todas têm guarda `if (prefersReduced) {...; return;}`
+     antes de qualquer `gsap.set`/`gsap.to`, todas deixam o estado final
+     visível (`opacity: 1`, linha da timeline em `height: '100%'`), sem
+     transform/offset preso a meio caminho.
+   - **Mobile (375×812):** sem scroll horizontal em nenhuma posição de
+     scroll; blobs de parallax presentes no DOM mas com `transform: none`
+     durante todo o scroll (desativados conforme o spec); cascata,
+     barra de progresso e linha da timeline continuam animando
+     normalmente. Screenshots de Hero/Skills/Experience conferidos.
+   - **Regressão completa (desktop):** toggle de tema (blobs de parallax
+     acompanham `var(--primary)`/`var(--border)` corretamente, sem
+     glitch visual); dropdown de idioma testado em `de`/`es`/`en`/`pt` —
+     texto atualiza certo e nenhuma animação já concluída "pisca" de
+     volta para invisível ao trocar idioma; menu hambúrguer mobile abre e
+     fecha normalmente; nav ativo por scroll (`initActiveNav`, em
+     `main.js`, não alterado por este plano) testado ponta a ponta;
+     requisições de rede conferidas (GSAP e ScrollTrigger CDN retornam
+     `200`, nenhum `404` em lugar nenhum); console sem erros em todas as
+     combinações de viewport/tema/idioma testadas.
+   - **Observação (não é bug deste plano):** o destaque de nav ativo por
+     scroll (`initActiveNav`, `IntersectionObserver` com
+     `rootMargin: '-40% 0px -50% 0px'`) nunca marca "Contato" como ativo
+     quando a página está no scroll máximo, porque a seção Contato é curta
+     demais para cruzar a faixa de interseção antes do fim do documento.
+     Comportamento idêntico já existia antes da Task 1 (lógica
+     byte-a-byte igual em `main.js`) — não é uma regressão deste plano,
+     por isso não foi alterado aqui (fora do escopo desta auditoria).
+   - Nenhum fix de código foi necessário nesta tarefa — a única mudança é
+     esta atualização do `PROJECT_STATUS.md`.
+- **Não-objetivos explícitos do spec** (combinados com o usuário no
+  brainstorm, ver spec) — ainda **não implementados** e não devem ser
+  presumidos como feitos em sessões futuras: botões magnéticos, tilt 3D
+  nos cards, transição animada no toggle de tema, elemento tipo
+  terminal/código digitando.
+- **Status:** as 8 tarefas do plano estão completas e revisadas na branch
+  `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`). A
+  branch ainda não foi mesclada para `main` — decisão de merge fica para o
+  usuário.
 
 ## Bugs encontrados e corrigidos (registro rápido)
 
