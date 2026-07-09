@@ -48,7 +48,52 @@
             });
         }
 
+        function typeText(el, text, charDelay, onDone) {
+            var i = 0;
+            el.textContent = '';
+            var timer = setInterval(function () {
+                i++;
+                el.textContent = text.slice(0, i);
+                if (i >= text.length) {
+                    clearInterval(timer);
+                    if (onDone) onDone();
+                }
+            }, charDelay);
+        }
+
+        function initTerminal() {
+            var terminal = document.querySelector('.hero-terminal');
+            if (!terminal) return;
+            var cmds = terminal.querySelectorAll('.hero-terminal-cmd');
+            var outputs = terminal.querySelectorAll('.hero-terminal-output');
+
+            if (prefersReduced) {
+                cmds.forEach(function (cmd) { cmd.textContent = cmd.getAttribute('data-cmd'); });
+                outputs.forEach(function (out) { out.classList.remove('is-pending'); });
+                return;
+            }
+
+            var pairs = [];
+            for (var i = 0; i < cmds.length; i++) {
+                pairs.push({ cmd: cmds[i], output: outputs[i] });
+            }
+
+            function runPair(index) {
+                if (index >= pairs.length) return;
+                var pair = pairs[index];
+                typeText(pair.cmd, pair.cmd.getAttribute('data-cmd'), 45, function () {
+                    setTimeout(function () {
+                        pair.output.classList.remove('is-pending');
+                        setTimeout(function () { runPair(index + 1); }, 400);
+                    }, 200);
+                });
+            }
+
+            runPair(0);
+        }
+
         initMagneticButtons();
         initCardTilt();
+        initTerminal();
     });
 })();

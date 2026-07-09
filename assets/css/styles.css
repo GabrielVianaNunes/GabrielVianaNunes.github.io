@@ -792,3 +792,50 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
         clip-path: circle(var(--theme-toggle-radius, 150%) at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
     }
 }
+
+/* ========== Terminal do Hero ========== */
+.hero-terminal {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    max-width: 46ch;
+    border-radius: .75rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: var(--mono);
+    font-size: .85rem;
+}
+
+.hero-terminal-line {
+    margin: 0 0 .5rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.hero-terminal-line:last-child {
+    margin-bottom: 0;
+}
+
+.hero-terminal-prompt {
+    color: var(--primary);
+    margin-right: .4rem;
+}
+
+.hero-terminal-output {
+    color: var(--muted);
+}
+
+.hero-terminal-output.is-pending {
+    visibility: hidden;
+}
+
+.hero-terminal-cursor {
+    display: inline-block;
+    margin-left: .15rem;
+    animation: hero-terminal-blink 1s steps(1) infinite;
+}
+
+@keyframes hero-terminal-blink {
+    50% {
+        opacity: 0;
+    }
+}
