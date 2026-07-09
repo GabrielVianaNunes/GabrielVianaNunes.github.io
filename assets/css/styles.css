@@ -776,3 +776,19 @@ html[data-theme="dark"] .theme-toggle .icon-sun {
 html[data-theme="dark"] .theme-toggle .icon-moon {
     display: none;
 }
+
+/* ========== Transição de tema ========== */
+::view-transition-old(root) {
+    animation: none;
+}
+
+::view-transition-new(root) {
+    animation: theme-circle-reveal .5s ease forwards;
+    clip-path: circle(0px at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+}
+
+@keyframes theme-circle-reveal {
+    to {
+        clip-path: circle(var(--theme-toggle-radius, 150%) at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+    }
+}
