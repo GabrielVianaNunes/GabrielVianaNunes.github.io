@@ -4,9 +4,23 @@
         var menu = document.querySelector('.menu');
         if (!toggle || !menu) return;
 
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var menuItems = menu.querySelectorAll('li');
+
         toggle.addEventListener('click', function () {
             var isOpen = menu.classList.toggle('is-open');
             toggle.setAttribute('aria-expanded', String(isOpen));
+
+            if (isOpen && window.gsap && !prefersReduced) {
+                gsap.set(menuItems, { opacity: 0, y: -8 });
+                gsap.to(menuItems, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.35,
+                    ease: 'power2.out',
+                    stagger: 0.05
+                });
+            }
         });
 
         menu.querySelectorAll('a').forEach(function (link) {
