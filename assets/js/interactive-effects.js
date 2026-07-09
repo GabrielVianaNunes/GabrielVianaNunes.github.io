@@ -73,62 +73,8 @@
             runPair(0);
         }
 
-        function initGyroTilt() {
-            if (!window.gsap || canHover || prefersReduced) return;
-            if (!('DeviceOrientationEvent' in window)) return;
-            var cards = document.querySelectorAll('#projetos .case-study, #projetos .card');
-            if (!cards.length) return;
-
-            var maxTilt = 2;
-            var tweens = [];
-            cards.forEach(function (card) {
-                gsap.set(card, { transformPerspective: 800, transformStyle: 'preserve-3d' });
-                tweens.push({
-                    rotateXTo: gsap.quickTo(card, 'rotationX', { duration: 0.4, ease: 'power3' }),
-                    rotateYTo: gsap.quickTo(card, 'rotationY', { duration: 0.4, ease: 'power3' })
-                });
-            });
-
-            var baseline = null;
-
-            function handleOrientation(e) {
-                if (e.beta === null || e.gamma === null) return;
-                if (!baseline) {
-                    baseline = { beta: e.beta, gamma: e.gamma };
-                    return;
-                }
-                var deltaBeta = Math.max(-45, Math.min(45, e.beta - baseline.beta));
-                var deltaGamma = Math.max(-45, Math.min(45, e.gamma - baseline.gamma));
-                tweens.forEach(function (t) {
-                    t.rotateYTo((deltaGamma / 45) * maxTilt);
-                    t.rotateXTo(-(deltaBeta / 45) * maxTilt);
-                });
-            }
-
-            function attach() {
-                window.addEventListener('deviceorientation', handleOrientation);
-            }
-
-            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-                var btn = document.querySelector('.gyro-permission-btn');
-                if (!btn) return;
-                btn.hidden = false;
-                btn.addEventListener('click', function () {
-                    DeviceOrientationEvent.requestPermission().then(function (state) {
-                        if (state === 'granted') attach();
-                        btn.remove();
-                    }).catch(function () {
-                        btn.remove();
-                    });
-                });
-            } else {
-                attach();
-            }
-        }
-
         initTouchActiveWorkaround();
         initMagneticButtons();
         initTerminal();
-        initGyroTilt();
     });
 })();
