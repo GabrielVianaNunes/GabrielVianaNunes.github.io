@@ -7,12 +7,15 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (feature de efeitos interativos concluída —
-> 5/5 tarefas, auditoria final aprovada, ver "Sessão efeitos interativos"
-> abaixo)
+> Última atualização: 2026-07-09 (scroll storytelling e efeitos interativos
+> mesclados para `main` e publicados no GitHub)
 
 ## Próximos passos
 
+- [ ] Ajustar a duração/visibilidade da transição de círculo no toggle de
+      tema (`assets/js/theme.js` / `assets/css/styles.css`,
+      `@keyframes theme-circle-reveal`) — o usuário achou o efeito rápido
+      demais para perceber ao trocar entre claro/escuro.
 - [ ] **`assets/img/favicon.png` e `assets/img/og-image.png` estão vazios (0
       bytes)** — encontrado ao rodar o graphify (extração de imagem falhou
       por não haver conteúdo). O favicon não aparece na aba do navegador e a
@@ -53,8 +56,8 @@
 | Dados de contato reais | ✅ Pronto | E-mail, LinkedIn, GitHub, CV — todos conferidos byte a byte |
 | Push para o GitHub | ✅ Feito | Repositório renomeado para `GabrielVianaNunes.github.io` (público), URL final `https://gabrielviananunes.github.io/` |
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
-| Scroll storytelling / motion (GSAP) | ✅ Pronto (8/8 tarefas, auditoria aprovada) | Branch `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`) — ver "Sessão scroll storytelling" abaixo. Ainda não mesclado para `main`. |
-| Efeitos interativos (botões magnéticos, tilt 3D, transição de tema, terminal) | ✅ Pronto (5/5 tarefas, auditoria aprovada) | Branch `interactive-effects` (worktree `.worktrees/interactive-effects`) — ver "Sessão efeitos interativos" abaixo. Ainda não mesclado para `main`. |
+| Scroll storytelling / motion (GSAP) | ✅ Pronto e mesclado | 8/8 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão scroll storytelling" abaixo. |
+| Efeitos interativos (botões magnéticos, tilt 3D, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
 
@@ -228,10 +231,9 @@ individualmente antes da próxima:
   "Sessão efeitos interativos (2026-07-09)" abaixo — ver essa seção para o
   estado atual; esta nota é apenas histórica e não deve mais ser lida como
   pendência.
-- **Status:** as 8 tarefas do plano estão completas e revisadas na branch
-  `scroll-storytelling` (worktree `.worktrees/scroll-storytelling`). A
-  branch ainda não foi mesclada para `main` — decisão de merge fica para o
-  usuário.
+- **Status:** as 8 tarefas do plano foram completadas, revisadas e
+  mescladas para `main` (fast-forward) em 2026-07-09. Worktree e branch
+  `scroll-storytelling` removidos após o merge.
 
 ## Sessão efeitos interativos (2026-07-09)
 
@@ -309,10 +311,9 @@ individualmente antes da próxima:
 - **Não-objetivos do spec de 2026-07-08** (botões magnéticos, tilt 3D nos
   cards, transição animada do tema, terminal digitando) — **todos
   implementados agora**, não ficam mais pendentes.
-- **Status:** as 5 tarefas do plano estão completas e revisadas na branch
-  `interactive-effects` (worktree `.worktrees/interactive-effects`). A
-  branch ainda não foi mesclada para `main` — decisão de merge fica para o
-  usuário.
+- **Status:** as 5 tarefas do plano foram completadas, revisadas e
+  mescladas para `main` (fast-forward) em 2026-07-09. Worktree e branch
+  `interactive-effects` removidos após o merge.
 
 ## Bugs encontrados e corrigidos (registro rápido)
 
