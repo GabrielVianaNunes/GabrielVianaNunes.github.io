@@ -19,6 +19,25 @@
             });
         }
 
+        function initParallax() {
+            if (prefersReduced || isMobile) return;
+            document.querySelectorAll('.section-parallax').forEach(function (blob) {
+                var section = blob.parentElement;
+                if (!section) return;
+                gsap.to(blob, {
+                    y: function () { return section.offsetHeight * 0.2; },
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            });
+        }
+
         initProgressBar();
+        initParallax();
     });
 })();

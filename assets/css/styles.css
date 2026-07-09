@@ -48,6 +48,8 @@ a:hover {
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -151,6 +153,7 @@ a:hover {
 
 /* ========== Hero ========== */
 .hero {
+    position: relative;
     padding: 4rem 0 3rem;
     background: linear-gradient(180deg, var(--surface), transparent);
     border-bottom: 1px solid var(--border);
@@ -227,6 +230,7 @@ a:hover {
 
 /* ========== Seções ========== */
 .section {
+    position: relative;
     padding: 3rem 0;
 }
 
@@ -554,6 +558,29 @@ html[data-theme="dark"] .tags li {
     background: var(--primary);
     z-index: 50;
     pointer-events: none;
+}
+
+.section-parallax {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.section-parallax::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    width: 480px;
+    height: 480px;
+    max-width: 60vw;
+    max-height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: .12;
+    filter: blur(60px);
 }
 
 /* ----- Languages block ----- */
