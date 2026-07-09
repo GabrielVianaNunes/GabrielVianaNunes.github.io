@@ -512,6 +512,28 @@ html[data-theme="dark"] .tags li {
     /* borda um pouco mais evidente */
 }
 
+.gyro-permission-btn {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: .4rem .8rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--primary);
+    font-family: var(--mono);
+    font-size: .8rem;
+    cursor: pointer;
+    transition: transform .15s ease;
+}
+
+.gyro-permission-btn[hidden] {
+    display: none;
+}
+
+.gyro-permission-btn:active {
+    transform: scale(0.96);
+}
+
 /* ========== Contato / Rodapé ========== */
 .contact {
     list-style: none;
