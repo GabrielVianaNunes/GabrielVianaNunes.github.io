@@ -7,8 +7,9 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (favicon e og-image gerados — monograma
-> "GN" e card de preview de link, ambos estavam vazios/0 bytes)
+> Última atualização: 2026-07-09 (favicon e og-image gerados — ambos
+> estavam vazios/0 bytes; badge do og-image ajustado para não citar mais a
+> ZEISS)
 
 ## Próximos passos
 
@@ -20,9 +21,12 @@
       monograma "GN" (fundo azul `--primary`, quadrado arredondado 128×128)
       via script Python/Pillow, salvo no mesmo caminho.
 - [x] ~~`assets/img/og-image.png` estava vazio (0 bytes)~~ — gerada uma
-      imagem 1200×630px (fundo escuro, glow azul sutil, monograma GN,
-      badge "Ex-intern at ZEISS · Germany", nome, cargo, localização, URL)
-      via script Python/Pillow, mesma identidade visual do site.
+      imagem 1200×630px (fundo escuro, glow azul sutil, monograma GN, nome,
+      cargo, localização, URL) via script Python/Pillow, mesma identidade
+      visual do site. Badge trocado de "Ex-intern at ZEISS · Germany" para
+      "Full-Stack Development · Process Automation" a pedido do usuário
+      (não trabalha mais na ZEISS, quer o card focado no perfil atual de
+      tecnologia/automação).
 - [ ] Trocar `assets/img/profile.jpg` por uma foto mais profissional (a atual
       é uma selfie casual) — layout já preparado para receber o arquivo no
       mesmo caminho, sem precisar mexer em código.
