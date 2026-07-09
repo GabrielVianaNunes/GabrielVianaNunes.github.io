@@ -9,6 +9,9 @@ puro, sem build tools), com 4 idiomas e tema claro/escuro.
 
 - HTML5 + CSS3 (custom properties para tema) + JavaScript puro (ES2017, sem
   bundler, sem framework).
+- [GSAP](https://gsap.com/) + ScrollTrigger via CDN para os efeitos de
+  scroll (barra de progresso, parallax, cascatas de revelação, timeline se
+  desenhando).
 - Ícones: [devicon](https://devicon.dev/) via CDN + SVGs próprios para
   competências sem logo oficial.
 - Bandeiras: [flag-icons](https://github.com/lipis/flag-icons) via CDN.
@@ -36,7 +39,9 @@ assets/
   js/
     theme.js                toggle claro/escuro (localStorage + FOUC guard)
     i18n.js                  motor de traduções PT/EN/DE/ES + dropdown de idioma
-    main.js                   menu mobile, scroll-reveal, destaque de nav ativo
+    main.js                   menu mobile, destaque de nav ativo
+    scroll-effects.js         efeitos de scroll via GSAP/ScrollTrigger (barra
+                               de progresso, parallax, cascatas, timeline)
   cv/Gabriel-Viana-Nunes-CV.pdf   currículo para download
   img/                      foto de perfil, favicon, imagem de Open Graph
 docs/
