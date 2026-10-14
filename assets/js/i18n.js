@@ -83,6 +83,9 @@
             'projects.ultralino.badge': 'In progress',
             'projects.ultralino.title': 'Ultralino',
             'projects.ultralino.desc': "A Python + Playwright robot built for SENAI's Food & Beverage lab, automating the registration of hundreds of test variables and analysis notebooks into the UltraLIMS system — eliminating manual, one-by-one data entry and checking for duplicates on every run. Already in production use, with new automations still being developed.",
+            'projects.repoLink': 'View on GitHub',
+            'projects.blackbox.title': 'Developer Black Box',
+            'projects.blackbox.desc': "A local \"black box\" for Windows 11 that records technical process events, crashes and hangs, preserves incident evidence and helps investigate software problems — privacy first, with everything encrypted on the user's PC and no cloud. Built with Rust, Tauri and React.",
             'contact.title': 'Contact',
             'contact.lead': "Open to opportunities and collaborations — let's talk.",
             'footer.text': '© 2026 Gabriel Nunes · Goiânia, Brazil'
@@ -165,6 +168,9 @@
             'projects.ultralino.badge': 'Em andamento',
             'projects.ultralino.title': 'Ultralino',
             'projects.ultralino.desc': 'Um robô em Python + Playwright desenvolvido para o laboratório de Alimentos e Bebidas do SENAI, que automatiza o cadastro de centenas de variáveis de ensaio e cadernos de análise no sistema UltraLIMS — eliminando o trabalho manual de cadastro um a um e conferindo duplicidade a cada execução. Já em uso em produção, com novas automações em desenvolvimento.',
+            'projects.repoLink': 'Ver no GitHub',
+            'projects.blackbox.title': 'Developer Black Box',
+            'projects.blackbox.desc': 'Uma "caixa-preta" local para Windows 11 que registra eventos técnicos de processos, travamentos e falhas, preserva evidências de incidentes e ajuda a investigar problemas de software — privacidade em primeiro lugar, com tudo criptografado no PC do usuário e sem nuvem. Feito com Rust, Tauri e React.',
             'contact.title': 'Contato',
             'contact.lead': 'Aberto a oportunidades e colaborações — vamos conversar.',
             'footer.text': '© 2026 Gabriel Nunes · Goiânia, Brasil'
@@ -247,6 +253,9 @@
             'projects.ultralino.badge': 'In Arbeit',
             'projects.ultralino.title': 'Ultralino',
             'projects.ultralino.desc': 'Ein Python + Playwright Robot, entwickelt für das Lebensmittel- und Getränkelabor des SENAI, der die Registrierung von Hunderten Testvariablen und Analyseprotokollen im UltraLIMS-System automatisiert — und so die manuelle Eintragung Stück für Stück überflüssig macht und bei jedem Lauf auf Duplikate prüft. Bereits im produktiven Einsatz, mit laufend neuen Automatisierungen in Entwicklung.',
+            'projects.repoLink': 'Auf GitHub ansehen',
+            'projects.blackbox.title': 'Developer Black Box',
+            'projects.blackbox.desc': 'Eine lokale „Blackbox“ für Windows 11, die technische Prozessereignisse, Abstürze und Hänger aufzeichnet, Beweise für Vorfälle sichert und bei der Untersuchung von Softwareproblemen hilft — Datenschutz zuerst, alles verschlüsselt auf dem PC des Nutzers und ohne Cloud. Entwickelt mit Rust, Tauri und React.',
             'contact.title': 'Kontakt',
             'contact.lead': 'Offen für Gelegenheiten und Zusammenarbeit — lass uns reden.',
             'footer.text': '© 2026 Gabriel Nunes · Goiânia, Brasilien'
@@ -329,6 +338,9 @@
             'projects.ultralino.badge': 'En curso',
             'projects.ultralino.title': 'Ultralino',
             'projects.ultralino.desc': 'Un robot en Python + Playwright desarrollado para el laboratorio de Alimentos y Bebidas del SENAI, que automatiza el registro de cientos de variables de ensayo y cuadernos de análisis en el sistema UltraLIMS — eliminando el trabajo manual de registro uno por uno y verificando duplicados en cada ejecución. Ya en uso en producción, con nuevas automatizaciones en desarrollo.',
+            'projects.repoLink': 'Ver en GitHub',
+            'projects.blackbox.title': 'Developer Black Box',
+            'projects.blackbox.desc': 'Una "caja negra" local para Windows 11 que registra eventos técnicos de procesos, fallos y bloqueos, conserva evidencias de incidentes y ayuda a investigar problemas de software — privacidad primero, con todo cifrado en el PC del usuario y sin nube. Hecho con Rust, Tauri y React.',
             'contact.title': 'Contacto',
             'contact.lead': 'Abierto a oportunidades y colaboraciones — hablemos.',
             'footer.text': '© 2026 Gabriel Nunes · Goiânia, Brasil'

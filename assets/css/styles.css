@@ -485,6 +485,21 @@ a:hover {
     margin-top: 0;
 }
 
+.case-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.case-link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}
+
 .case-study:active,
 .card:active {
     transform: scale(0.98);
