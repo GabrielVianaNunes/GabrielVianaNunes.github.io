@@ -1172,3 +1172,23 @@ html[data-theme="light"] .brand-scorch {
         display: none;
     }
 }
+
+/* Logo GVN (Lasso Dial V): marca do topo e do rodapé */
+.brand-mark--logo .brand-glyph {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.logo-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.brand-mark--logo .brand-scorch {
+    left: 1.25rem;
+}
+
+.brand-mark--logo .brand-ember {
+    left: 1.25rem;
+}

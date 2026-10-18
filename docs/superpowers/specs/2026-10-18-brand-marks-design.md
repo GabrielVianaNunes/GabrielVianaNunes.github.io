@@ -12,8 +12,8 @@ Aprofundar a linguagem western do site com detalhes autorais, sem pixel art, ilu
   - Case do SENAI (metrologia): **Rocking M** (letra com arco embaixo)
   - Ultralino: **Lazy U** (letra deitada)
   - Developer Black Box: **Bar B** (barra em cima)
-  - Logo do topo e rodapé: **Circle GN Bar** (a marca de Gabriel, círculo com barra); o logo do topo
-    queima assim que a página abre e o do rodapé ao chegar nele
+  - Logo do topo e do rodapé: a logo GVN "Lasso Dial V" (ver seção Logo), que queima assim que a página
+    abre (topo) e ao chegar no rodapé
 - Os nomes das marcas são jargão de rancho e ficam sem tradução; o elemento é `aria-hidden`.
 - Ao entrar na tela a marca é "marcada a fogo" (GSAP): o ferro é pressionado (escala 1,5 para 1 em 0,17 s),
   a marca nasce branca-incandescente com brilho de brasa, esfria para laranja e depois para o latão em cerca de
@@ -40,3 +40,16 @@ Aprofundar a linguagem western do site com detalhes autorais, sem pixel art, ilu
 
 `index.html` (4 marcas, rodapé reestruturado, script novo), `assets/css/styles.css`,
 `assets/js/scroll-effects.js` (queima da marca), `assets/js/daylight.js` (novo).
+
+### Logo GVN: "Lasso Dial V"
+- Símbolo único em latão (`assets/img/logo.svg`), desenhado como uma corda só com o nó da honda:
+  a haste esquerda e a diagonal formam o **N**; a diagonal e o braço "lançado" formam o **V**; o laço grande é
+  o **G**, o mostrador de instrumento e o laço de vaqueiro ao mesmo tempo.
+- Segundo significado: a diagonal e o braço formam um sinal de raiz (√) e lembram o símbolo de acabamento de
+  superfície dos desenhos de usinagem (referência à metrologia); o entalhe entre o braço e a barra é um V
+  de verdade, como o de um bloco em V ou de uma mira.
+- Fraqueza conhecida: o N é a letra mais fraca (pode ser lido como "NV" ou "IV" fora de contexto) e em 16px
+  o conjunto vira um símbolo compacto.
+- Favicon: `assets/img/favicon.svg` e `favicon.png` (símbolo sobre quadrado escuro); `og-image.png` usa o símbolo.
+- Cabeçalho e rodapé usam o SVG inline com `currentColor`, para que a marcação a fogo (cor) funcione.
+- O registro como marca depende de busca de anterioridade no INPI, que não foi feita.
