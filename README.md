@@ -15,8 +15,8 @@ puro, sem build tools), com 4 idiomas e tema claro/escuro.
 - Ícones: [devicon](https://devicon.dev/) via CDN + SVGs próprios para
   competências sem logo oficial.
 - Bandeiras: [flag-icons](https://github.com/lipis/flag-icons) via CDN.
-- Fontes: Inter (texto) e JetBrains Mono (tags/labels técnicos) via Google
-  Fonts.
+- Fontes via Google Fonts: Rye (títulos), Oswald (rótulos, botões e menu, em
+  caixa-alta espaçada), Inter (texto) e JetBrains Mono (tags e terminal).
 
 ## Rodando localmente
 
@@ -57,15 +57,24 @@ graphify-out/                grafo de conhecimento do projeto (ver abaixo)
 Header (nav + seletor de idioma + tema) · Hero · Sobre mim · Experiência
 (SENAI FATESG + estágio internacional na ZEISS) · Skills (Backend, Frontend,
 Banco de Dados, Ferramentas, Outras competências, Soft Skills, Idiomas) ·
-Projetos (case do SENAI + Ultralino) · Contato · Rodapé.
+Projetos (case do SENAI com link para o repo `TCC`, Ultralino e Developer Black Box) · Contato · Rodapé.
+
+## Identidade visual
+
+Direção "western moderno" (tom de rancho contemporâneo, sem pixel art nem
+ilustração): paleta Ranch Noir (marrom escuro quente, latão `#b8893f`,
+ferrugem `#8c4a2b`; tema claro com latão escurecido para contraste AA),
+títulos em Rye, rótulos em Oswald, cantos quase retos, linhas finas e
+seções numeradas via CSS counters. Tokens em `:root` e
+`html[data-theme="dark"]` no `styles.css`. Spec e plano em `docs/superpowers/`.
 
 ## Idiomas e tema
 
 - 4 idiomas: Português, English, Deutsch, Español. Detecta o idioma do
   navegador no primeiro acesso (com fallback em inglês) e lembra a escolha
   manual feita no dropdown do menu.
-- Tema claro/escuro alternável manualmente, com a preferência do sistema
-  como padrão inicial e persistência entre visitas.
+- Tema escuro como padrão ('Ranch Noir') e tema claro 'dia' alternável
+  manualmente, com persistência da escolha entre visitas.
 - Todo o texto traduzível usa atributos `data-i18n` / `data-i18n-attr`
   apontando para chaves no dicionário de `assets/js/i18n.js`.
 
@@ -82,6 +91,16 @@ graphify path "<A>" "<B>"            # caminho mais curto entre dois conceitos
 graphify explain "<conceito>"        # explicação pontual de um nó
 graphify . --update                  # re-extrai só os arquivos que mudaram
 ```
+
+## Fluxo de trabalho (git flow)
+
+- `main`: produção, publicada no GitHub Pages. Só recebe `develop` por PR de
+  release (ou hotfix).
+- `develop`: integração. Recebe `feature/*` por PR.
+- `feature/*`, `release/*`, `hotfix/*`: temporárias, apagadas depois do merge.
+- `main` e `develop` têm proteção: PR obrigatório, sem force push e sem
+  exclusão. Depois de cada release, um PR `main` → `develop` (merge commit)
+  mantém as duas alinhadas.
 
 ## Deploy
 

@@ -7,9 +7,8 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-07-09 (favicon e og-image gerados — ambos
-> estavam vazios/0 bytes; badge do og-image ajustado para não citar mais a
-> ZEISS)
+> Última atualização: 2026-10-17 (redesign western moderno, projetos e
+> habilidades atualizados, git flow com branches protegidas)
 
 ## Próximos passos
 
@@ -18,12 +17,12 @@
       0.5s (valor original) já era visível, o problema era cache de
       navegador/CDN do GitHub Pages, não o código.
 - [x] ~~`assets/img/favicon.png` estava vazio (0 bytes)~~ — gerado um
-      monograma "GN" (fundo azul `--primary`, quadrado arredondado 128×128)
+      monograma "GN" (128×128; refeito em 2026-10 na paleta Ranch Noir, latão sobre marrom escuro)
       via script Python/Pillow, salvo no mesmo caminho.
 - [x] ~~`assets/img/og-image.png` estava vazio (0 bytes)~~ — gerada uma
       imagem 1200×630px (fundo escuro, glow azul sutil, monograma GN, nome,
       cargo, localização, URL) via script Python/Pillow, mesma identidade
-      visual do site. Badge trocado de "Ex-intern at ZEISS · Germany" para
+      visual do site (refeita em 2026-10 na paleta Ranch Noir, com o nome em Rye). Badge trocado de "Ex-intern at ZEISS · Germany" para
       "Full-Stack Development · Process Automation" a pedido do usuário
       (não trabalha mais na ZEISS, quer o card focado no perfil atual de
       tecnologia/automação).
@@ -39,8 +38,8 @@
 - [x] ~~Renomear o repositório para ficar com URL limpa~~ — repositório
       renomeado para `GabrielVianaNunes.github.io` (público), URL final:
       `https://gabrielviananunes.github.io/`.
-- [ ] Ativar o GitHub Pages nas configurações do repositório (Settings →
-      Pages → Branch `main` → pasta `/ (root)`) para o site ficar no ar.
+- [x] ~~Ativar o GitHub Pages nas configurações do repositório~~ — ativo,
+      servindo a branch `main`.
 - [ ] Depois do próximo deploy, testar a prévia real do link no
       WhatsApp/LinkedIn/Twitter (ferramentas como o Facebook Sharing
       Debugger ajudam a forçar o recache do `og:image` nessas plataformas,
@@ -65,6 +64,9 @@
 | GitHub Pages ativo | ✅ Feito | Site no ar em `https://gabrielviananunes.github.io/` |
 | Scroll storytelling / motion (GSAP) | ✅ Pronto e mesclado | 8/8 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão scroll storytelling" abaixo. |
 | Efeitos interativos (botões magnéticos, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. O tilt 3D nos cards implementado nessa sessão foi removido depois, ver "Sessão efeitos mobile". |
+| Redesign western moderno (Ranch Noir) | ✅ Pronto e no ar | Paleta quente, Rye/Oswald, tema escuro padrão, favicon/og-image novos — PRs #6 e #7, ver "Sessão redesign western e git flow" abaixo. |
+| Projetos e habilidades atualizados | ✅ Pronto e no ar | SENAI com link para `TCC`, novo card Developer Black Box, Rust/Tauri/React/SQLite/Vite/GitHub Actions/Docker nas habilidades, travessões removidos — PRs #1 a #4. |
+| Git flow | ✅ Ativo | `main` (produção) e `develop` (integração) protegidas, PR obrigatório, branches temporárias apagadas após o merge. |
 | Efeitos mobile (menu animado, tap feedback, parallax mobile) | ✅ Pronto e mesclado | 6/6 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos mobile" abaixo. O tilt por giroscópio implementado nessa sessão foi removido depois a pedido do usuário (não gostou do efeito). |
 
 ## Sessão de reforma completa (2026-07-06 / 2026-07-07)
@@ -456,6 +458,34 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
   giroscópio) — apenas o parallax de fundo, a cascata de revelação e o
   feedback de toque continuam ativos ali.
 
+## Sessão redesign western e git flow (2026-10-14 a 2026-10-17)
+
+- **Projetos:** o case do SENAI agora aponta para o repo público `TCC`
+  (link "Ver no GitHub") e há um novo card **Developer Black Box**
+  (Rust, Tauri, React, TypeScript) com link para o repo. Textos nos 4
+  idiomas em `assets/js/i18n.js` (`projects.blackbox.*`, `projects.repoLink`).
+- **Habilidades:** Rust e Tauri (Backend), React (Frontend), SQLite
+  (Database), Vite, GitHub Actions e Docker (Tools) e "Desktop applications"
+  (Other competencies).
+- **Travessões removidos** do HTML e dos 4 idiomas: períodos usam hífen,
+  cargos/título/localização usam ponto médio, frases corridas usam
+  vírgula ou ponto.
+- **Redesign "western moderno" (Ranch Noir):** paleta escura quente com
+  latão e ferrugem (tema claro "dia" na mesma família), títulos em Rye,
+  rótulos/botões/menu em Oswald, cantos quase retos, seções numeradas por
+  CSS counters, foto com leve filtro quente, favicon e og-image refeitos.
+  Sem pixel art, sem SVG decorativo, nada copiado do overview do GitHub.
+  Spec: `docs/superpowers/specs/2026-10-17-western-redesign-design.md`;
+  plano: `docs/superpowers/plans/2026-10-17-western-redesign.md`.
+- **Tema padrão agora é escuro** (antes seguia a preferência do sistema);
+  quem já escolheu um tema mantém a escolha.
+- **Git flow:** `develop` criada; `main` e `develop` protegidas (PR
+  obrigatório, 0 aprovações, sem force push, sem exclusão, conversas
+  resolvidas; `enforce_admins` desligado). Ciclo: `feature/*` → PR para
+  `develop` → PR de release `develop` → `main` (deploy) → PR `main` →
+  `develop` (merge commit) para alinhar. Branches temporárias são apagadas
+  depois do merge.
+
 ## Bugs encontrados e corrigidos (registro rápido)
 
 - `.gyro-permission-btn[hidden]` não escondia o botão: a regra base
@@ -476,9 +506,12 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
 
 - Idioma padrão: detecta o do navegador (pt/de/es), com fallback em inglês;
   escolha manual do usuário persiste e tem prioridade.
-- Case do SENAI (Sistema de Gestão para Laboratório de Metrologia): sem
-  link de repositório (não existe repo público) — conteúdo genérico o
-  suficiente para não expor detalhes internos do SENAI/ZEISS.
+- Case do SENAI (Sistema de Gestão para Laboratório de Metrologia): agora
+  linka o repo público `TCC` — conteúdo continua genérico o suficiente
+  para não expor detalhes internos do SENAI/ZEISS.
+- Identidade visual: western moderno e profissional; sem pixel art, sem
+  ilustração, sem humor, sem copiar elementos/frases do overview do GitHub.
+- Mensagens de commit e PRs em português; git flow obrigatório (ver README).
 - E-mail de contato usa `mailto:` padrão (não um link de webmail) — decisão
   consciente do usuário, mesmo sabendo que só funciona se o visitante tiver
   um app de e-mail configurado no sistema.
