@@ -7,8 +7,8 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-10-17 (redesign western moderno, projetos e
-> habilidades atualizados, git flow com branches protegidas)
+> Última atualização: 2026-10-18 (marcas de ferro com marcação a fogo, luz do dia,
+> divisores, nome no topo e logo GVN; antes: redesign western, projetos e git flow)
 
 ## Próximos passos
 
@@ -66,6 +66,7 @@
 | Efeitos interativos (botões magnéticos, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. O tilt 3D nos cards implementado nessa sessão foi removido depois, ver "Sessão efeitos mobile". |
 | Redesign western moderno (Ranch Noir) | ✅ Pronto e no ar | Paleta quente, Rye/Oswald, tema escuro padrão, favicon/og-image novos — PRs #6 e #7, ver "Sessão redesign western e git flow" abaixo. |
 | Projetos e habilidades atualizados | ✅ Pronto e no ar | SENAI com link para `TCC`, novo card Developer Black Box, Rust/Tauri/React/SQLite/Vite/GitHub Actions/Docker nas habilidades, travessões removidos — PRs #1 a #4. |
+| Marcas de ferro, luz do dia, divisores e logo GVN | ✅ Pronto e mergeado na `develop` (PRs #12 e #13), aguardando release | Marcação a fogo nas marcas dos projetos, logo "Lasso Dial V" no topo/rodapé/favicon/og-image, nome no cabeçalho e no hero — ver "Sessão marcas de ferro e logo" abaixo. |
 | Git flow | ✅ Ativo | `main` (produção) e `develop` (integração) protegidas, PR obrigatório, branches temporárias apagadas após o merge. |
 | Efeitos mobile (menu animado, tap feedback, parallax mobile) | ✅ Pronto e mesclado | 6/6 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos mobile" abaixo. O tilt por giroscópio implementado nessa sessão foi removido depois a pedido do usuário (não gostou do efeito). |
 
@@ -486,6 +487,34 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
   `develop` (merge commit) para alinhar. Branches temporárias são apagadas
   depois do merge.
 
+## Sessão marcas de ferro e logo (2026-10-18)
+
+- **Marcas de ferro:** cada projeto ganhou uma marca no estilo das marcas de gado,
+  montada só com CSS: Rocking M (case do SENAI), Lazy U (Ultralino) e Bar B (Developer
+  Black Box). Os nomes são jargão de rancho e não são traduzidos; o elemento é
+  `aria-hidden`.
+- **Marcação a fogo (GSAP, `scroll-effects.js`):** ao entrar na tela o ferro "bate"
+  (escala 1,5 para 1), a marca nasce branca-incandescente, esfria para laranja e depois
+  latão em cerca de 2 s, deixa uma chamuscada no card e solta 8 brasas; passar o mouse
+  repete. Com `prefers-reduced-motion` a marca aparece parada.
+- **Luz do dia (`assets/js/daylight.js`):** camada fixa com brilho radial que acompanha
+  a rolagem (amanhecer, meio-dia, entardecer); intensidade menor no tema claro.
+- **Divisores com estrela** entre as seções (CSS em `.section + .section`).
+- **Nome no topo:** cabeçalho com símbolo, "Gabriel Nunes" e o cargo (chave `nav.logoRole`
+  nos 4 idiomas; some abaixo de 720px) e linha "GABRIEL NUNES" no hero.
+- **Logo GVN "Lasso Dial V":** escolhida entre vários conceitos feitos com o Opus. Uma
+  corda só desenha o N e o V e fecha no laço que é o G e o mostrador de instrumento; a
+  diagonal mais o braço lembram o sinal de raiz e o símbolo de acabamento de superfície
+  (metrologia). Arquivos `logo.svg`, `favicon.svg`, `favicon.png`; `og-image.png` refeita.
+  Spec em `docs/superpowers/specs/2026-10-18-brand-marks-design.md`.
+- **Correções no caminho:** marcas com `position: relative` herdavam `top`/`right` da
+  regra base e ficavam deslocadas; o gatilho do rodapé (88% da janela) nunca disparava no
+  fim da página (agora 98%); o `.nav` não tinha padding lateral (agora `.75rem 1rem`).
+- **Pendente:** busca de anterioridade no INPI e consulta a um agente de propriedade
+  industrial antes de pedir o registro da logo (não foi feita; "GN" fica perto da GN Store
+  Nord). O que a IA gerou sozinha pode não ter proteção autoral; documentar a contribuição
+  criativa humana.
+
 ## Bugs encontrados e corrigidos (registro rápido)
 
 - `.gyro-permission-btn[hidden]` não escondia o botão: a regra base
@@ -512,6 +541,9 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
 - Identidade visual: western moderno e profissional; sem pixel art, sem
   ilustração, sem humor, sem copiar elementos/frases do overview do GitHub.
 - Mensagens de commit e PRs em português; git flow obrigatório (ver README).
+- Logo: GVN "Lasso Dial V" escolhida pelo dono; marcas dos projetos seguem o jargão de
+  marcas de gado (sem tradução). Efeitos dinâmicos de outros lugares (overview do GitHub)
+  continuam fora do site.
 - E-mail de contato usa `mailto:` padrão (não um link de webmail) — decisão
   consciente do usuário, mesmo sabendo que só funciona se o visitante tiver
   um app de e-mail configurado no sistema.

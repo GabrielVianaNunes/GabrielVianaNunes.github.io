@@ -1,12 +1,12 @@
 # Navegação mobile (JS)
 
-> 3 nodes
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 
 - **main.js** (2 connections) — `assets/js/main.js`
-- **initMobileNav()** (1 connections) — `assets/js/main.js`
 - **initActiveNav()** (1 connections) — `assets/js/main.js`
+- **initMobileNav()** (1 connections) — `assets/js/main.js`
 
 ## Relationships
 

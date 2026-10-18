@@ -42,10 +42,11 @@ assets/
     main.js                   menu mobile (com animação de abertura), destaque de nav ativo
     scroll-effects.js         efeitos de scroll via GSAP/ScrollTrigger (barra
                                de progresso, parallax, cascatas, timeline)
+    daylight.js               luz do dia: brilho de fundo que acompanha a rolagem
     interactive-effects.js    botões magnéticos, terminal digitando no Hero,
                                feedback de toque no mobile
   cv/Gabriel-Viana-Nunes-CV.pdf   currículo para download
-  img/                      foto de perfil, favicon, imagem de Open Graph
+  img/                      foto de perfil, logo (logo.svg), favicon (svg e png), imagem de Open Graph
 docs/
   superpowers/specs/        specs de design das reformas do site
   superpowers/plans/        planos de implementação das reformas do site
@@ -54,7 +55,7 @@ graphify-out/                grafo de conhecimento do projeto (ver abaixo)
 
 ## Seções da página
 
-Header (nav + seletor de idioma + tema) · Hero · Sobre mim · Experiência
+Header (logo + nome, nav, seletor de idioma, tema) · Hero · Sobre mim · Experiência
 (SENAI FATESG + estágio internacional na ZEISS) · Skills (Backend, Frontend,
 Banco de Dados, Ferramentas, Outras competências, Soft Skills, Idiomas) ·
 Projetos (case do SENAI com link para o repo `TCC`, Ultralino e Developer Black Box) · Contato · Rodapé.
@@ -67,6 +68,20 @@ ferrugem `#8c4a2b`; tema claro com latão escurecido para contraste AA),
 títulos em Rye, rótulos em Oswald, cantos quase retos, linhas finas e
 seções numeradas via CSS counters. Tokens em `:root` e
 `html[data-theme="dark"]` no `styles.css`. Spec e plano em `docs/superpowers/`.
+
+Detalhes autorais, todos só com CSS e JavaScript (sem imagens):
+
+- **Marcas de ferro:** cada projeto tem uma marca no estilo das marcas de gado
+  (Rocking M, Lazy U, Bar B). Ao entrar na tela a marca é "marcada a fogo"
+  (GSAP): impacto, brilho de brasa que esfria até o latão, chamuscada no card e
+  brasas subindo; passar o mouse repete. Respeita `prefers-reduced-motion`.
+- **Logo GVN "Lasso Dial V":** símbolo em uma corda só (G = laço = mostrador, N e V
+  pelas hastes e pela diagonal), no cabeçalho, no rodapé, no favicon e na
+  imagem de compartilhamento (`assets/img/logo.svg`). O cabeçalho mostra o nome
+  e o cargo ao lado do símbolo.
+- **Luz do dia:** brilho de fundo que vai do amanhecer (topo) ao entardecer (fim
+  da página) conforme a rolagem (`daylight.js`).
+- **Divisores:** fio fino com uma estrela entre as seções.
 
 ## Idiomas e tema
 

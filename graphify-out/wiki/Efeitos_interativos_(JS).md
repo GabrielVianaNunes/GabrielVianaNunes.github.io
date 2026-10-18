@@ -1,14 +1,14 @@
 # Efeitos interativos (JS)
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 
 - **interactive-effects.js** (4 connections) — `assets/js/interactive-effects.js`
 - **initMagneticButtons()** (1 connections) — `assets/js/interactive-effects.js`
+- **initTerminal()** (1 connections) — `assets/js/interactive-effects.js`
 - **initTouchActiveWorkaround()** (1 connections) — `assets/js/interactive-effects.js`
 - **typeText()** (1 connections) — `assets/js/interactive-effects.js`
-- **initTerminal()** (1 connections) — `assets/js/interactive-effects.js`
 
 ## Relationships
 
