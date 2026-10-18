@@ -36,7 +36,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 
     <!-- Favicon e OG -->
-    <link rel="icon" href="assets/img/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <meta property="og:title" content="Gabriel Nunes · Portfolio" />
     <meta property="og:description"
         content="Software Engineering undergrad. Java, Spring Boot & Angular projects, skills, and contact." />
@@ -52,7 +53,7 @@
 
     <header class="site-header" role="banner">
         <nav class="nav container" aria-label="main">
-            <a class="logo" href="#">GN</a>
+            <a class="logo" href="#"><span class="brand-mark brand-mark--inline brand-mark--logo" aria-hidden="true"><span class="brand-glyph"><svg class="logo-svg" viewBox="0 0 240 240" focusable="false"><path d="M76 162V82L136 162L162.65 53.92Q166 40.33 153.39 34.27A92 92 0 1 0 192.5 176.64V120H146.36" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="146.36" cy="120" r="10" fill="currentColor"/></svg></span></span><span class="logo-text"><span class="logo-name">Gabriel Nunes</span><span class="logo-role" data-i18n="nav.logoRole">Software Engineer</span></span></a>
             <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" data-i18n-attr="aria-label:nav.menuToggle">
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
@@ -102,6 +103,7 @@
         <section class="hero">
             <div class="section-parallax" aria-hidden="true"></div>
             <div class="container">
+                <p class="hero-name">Gabriel Nunes</p>
                 <p class="badge" data-i18n="hero.badge">Ex-intern at ZEISS · Germany</p>
                 <h1 data-i18n="hero.headline">Full-Stack Software Engineer building clean, scalable products.</h1>
                 <p class="lead" data-i18n="hero.lead">
@@ -456,6 +458,7 @@
                 <h2 data-i18n="projects.title">Projects</h2>
 
                 <article class="case-study case-study--featured">
+                    <span class="brand-mark brand-mark--rocking" data-name="Rocking M" aria-hidden="true"><span class="brand-glyph"><span class="brand-letter">M</span></span></span>
                     <h3 data-i18n="projects.senai.title">Metrology Lab Management System</h3>
                     <div class="case-body">
                         <div>
@@ -493,6 +496,7 @@
 
                 <div class="cards">
                     <article class="card">
+                        <span class="brand-mark brand-mark--lazy" data-name="Lazy U" aria-hidden="true"><span class="brand-glyph"><span class="brand-letter">U</span></span></span>
                         <span class="case-badge" data-i18n="projects.ultralino.badge">In progress</span>
                         <h3 data-i18n="projects.ultralino.title">Ultralino</h3>
                         <p data-i18n="projects.ultralino.desc">
@@ -509,6 +513,7 @@
                     </article>
 
                     <article class="card">
+                        <span class="brand-mark brand-mark--bar-top" data-name="Bar B" aria-hidden="true"><span class="brand-glyph"><span class="brand-letter">B</span></span></span>
                         <h3 data-i18n="projects.blackbox.title">Developer Black Box</h3>
                         <p data-i18n="projects.blackbox.desc">
                             A local "black box" for Windows 11 that records technical process events, crashes and
@@ -549,7 +554,10 @@
     </main>
 
     <footer class="site-footer">
-        <div class="container small" data-i18n="footer.text">© 2026 Gabriel Nunes · Goiânia, Brazil</div>
+        <div class="container small footer-inner">
+            <span class="brand-mark brand-mark--inline brand-mark--logo" aria-hidden="true"><span class="brand-glyph"><svg class="logo-svg" viewBox="0 0 240 240" focusable="false"><path d="M76 162V82L136 162L162.65 53.92Q166 40.33 153.39 34.27A92 92 0 1 0 192.5 176.64V120H146.36" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="146.36" cy="120" r="10" fill="currentColor"/></svg></span></span>
+            <span data-i18n="footer.text">© 2026 Gabriel Nunes · Goiânia, Brazil</span>
+        </div>
     </footer>
 
     <script src="assets/js/main.js" defer></script>
@@ -558,6 +566,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <script src="assets/js/scroll-effects.js" defer></script>
+    <script src="assets/js/daylight.js" defer></script>
     <script src="assets/js/interactive-effects.js" defer></script>
 </body>
 

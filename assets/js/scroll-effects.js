@@ -63,7 +63,7 @@
 
         initProgressBar();
         initParallax();
-        revealGroup(document.querySelector('.hero .container'), '.badge, h1, .lead, .location, .cta', 0.1);
+        revealGroup(document.querySelector('.hero .container'), '.hero-name, .badge, h1, .lead, .location, .cta', 0.1);
         revealGroup(document.querySelector('#sobre .container > div:first-child'), 'p', 0.08);
         revealGroup(document.querySelector('.contact'), 'li', 0.07);
         document.querySelectorAll('#habilidades .skills-icons').forEach(function (ul) {
@@ -130,5 +130,72 @@
         }
 
         initTimeline();
+
+        function initBrandMarks() {
+            var marks = document.querySelectorAll('.brand-mark');
+            if (prefersReduced) return;
+
+            function spawnEmbers(mark) {
+                for (var i = 0; i < 8; i++) {
+                    var ember = document.createElement('span');
+                    ember.className = 'brand-ember';
+                    mark.appendChild(ember);
+                    gsap.fromTo(ember,
+                        { x: gsap.utils.random(-6, 6), y: 0, opacity: 1, scale: gsap.utils.random(0.8, 1.6) },
+                        {
+                            x: gsap.utils.random(-30, 30),
+                            y: gsap.utils.random(-70, -28),
+                            opacity: 0,
+                            scale: 0.2,
+                            duration: gsap.utils.random(0.9, 1.7),
+                            delay: gsap.utils.random(0, 0.25),
+                            ease: 'power1.out',
+                            onComplete: function () { this.targets()[0].remove(); }
+                        });
+                }
+            }
+
+            function brand(mark) {
+                var glyph = mark.querySelector('.brand-glyph');
+                var scorch = mark.querySelector('.brand-scorch');
+                if (mark._branding) return;
+                mark._branding = true;
+
+                var rest = window.getComputedStyle(mark).color;
+                var glow = 'drop-shadow(0 0 12px rgba(255, 150, 40, 1)) drop-shadow(0 0 26px rgba(255, 90, 0, .85))';
+                var tl = gsap.timeline({ onComplete: function () { mark._branding = false; } });
+
+                tl.set(glyph, { opacity: 1, scale: 1.5, color: '#fff3d6', filter: glow, x: 0 });
+                tl.set(scorch, { opacity: 0, scale: 0.5 });
+                tl.to(glyph, { scale: 1, duration: 0.17, ease: 'power4.in' });
+                tl.add(function () { spawnEmbers(mark); });
+                tl.to(scorch, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' }, '<');
+                tl.fromTo(glyph, { x: -2 }, { x: 0, duration: 0.35, ease: 'elastic.out(1, 0.25)' }, '<');
+                tl.to(glyph, { color: '#ff8a1f', duration: 0.55, ease: 'power1.out' }, '<');
+                tl.to(glyph, { color: rest, duration: 1.8, ease: 'power2.out' });
+                tl.to(glyph, { filter: 'drop-shadow(0 0 0px rgba(255, 150, 40, 0)) drop-shadow(0 0 0px rgba(255, 90, 0, 0))', duration: 2, ease: 'power2.out' }, '<');
+                tl.to(scorch, { opacity: 0.5, duration: 2, ease: 'power1.out' }, '<');
+                tl.set(glyph, { clearProps: 'color,filter,transform' });
+            }
+
+            marks.forEach(function (mark) {
+                var glyph = mark.querySelector('.brand-glyph');
+                var scorch = document.createElement('span');
+                scorch.className = 'brand-scorch';
+                scorch.setAttribute('aria-hidden', 'true');
+                mark.insertBefore(scorch, mark.firstChild);
+
+                gsap.set(glyph, { opacity: 0 });
+                ScrollTrigger.create({
+                    trigger: mark,
+                    start: 'top 98%',
+                    once: true,
+                    onEnter: function () { brand(mark); }
+                });
+                mark.addEventListener('mouseenter', function () { brand(mark); });
+            });
+        }
+
+        initBrandMarks();
     });
 })();
