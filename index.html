@@ -10,14 +10,14 @@
         content="Software Engineering undergrad. Java, Spring Boot & Angular projects, skills, and contact." />
 
     <!-- Theme colors for light/dark -->
-    <meta name="theme-color" content="#ffffff" data-dynamic>
+    <meta name="theme-color" content="#14110e" data-dynamic>
 
     <script>
       (function () {
         var stored = localStorage.getItem('site-theme');
         var theme = (stored === 'light' || stored === 'dark')
           ? stored
-          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          : 'dark';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
@@ -25,6 +25,7 @@
     <!-- Tipografia -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Estilos -->

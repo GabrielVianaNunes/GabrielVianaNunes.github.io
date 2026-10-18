@@ -16,26 +16,37 @@ body {
 }
 
 :root {
-    --bg: #ffffff;
-    --text: #111827;
-    --muted: #6b7280;
-    --surface: #f3f4f6;
-    --border: #e5e7eb;
-    --primary: #3b82f6;
-    --ring: #93c5fd;
+    --bg: #f4efe6;
+    --text: #1d1814;
+    --muted: #6e5e4f;
+    --surface: #ebe3d4;
+    --border: #d8ccb8;
+    --primary: #82581a;
+    --ring: #c9a566;
+    --rust: #8c4a2b;
     --accent: var(--primary);
+    --font-display: "Rye", Georgia, "Times New Roman", serif;
+    --font-label: "Oswald", "Arial Narrow", Arial, sans-serif;
     --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 html[data-theme="dark"] {
-    --bg: #0b0f19;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --surface: #111827;
-    --border: #1f2937;
-    --primary: #60a5fa;
-    --ring: #1d4ed8;
+    --bg: #14110e;
+    --text: #ece3d3;
+    --muted: #9a8f7e;
+    --surface: #1d1814;
+    --border: #2e2620;
+    --primary: #b8893f;
+    --ring: #6b4f22;
+    --rust: #8c4a2b;
     --accent: var(--primary);
+}
+
+h1,
+h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: .01em;
 }
 
 a {
@@ -92,7 +103,7 @@ a:hover {
 
 .menu a {
     padding: .5rem .75rem;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .menu a:hover {
@@ -118,7 +129,7 @@ a:hover {
     width: 2.25rem;
     height: 2.25rem;
     border: 1px solid var(--border);
-    border-radius: .625rem;
+    border-radius: 3px;
     background: transparent;
     cursor: pointer;
 }
@@ -159,9 +170,9 @@ a:hover {
     left: 1rem;
     top: 1rem;
     background: var(--primary);
-    color: white;
+    color: var(--bg);
     padding: .5rem 1rem;
-    border-radius: .5rem;
+    border-radius: 3px;
 }
 
 /* ========== Hero ========== */
@@ -186,7 +197,7 @@ a:hover {
     display: inline-block;
     margin: 0 0 .75rem;
     padding: .3rem .7rem;
-    border-radius: 999px;
+    border-radius: 3px;
     border: 1px solid var(--border);
     background: var(--surface);
     font-family: var(--mono);
@@ -202,14 +213,19 @@ a:hover {
 
 .cta {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
 }
 
 .btn {
     display: inline-block;
-    padding: .7rem 1rem;
-    border-radius: .75rem;
+    padding: .7rem 1.25rem;
+    font-family: var(--font-label);
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-radius: 4px;
     border: 1px solid var(--border);
     font-weight: 600;
     transition: transform .15s ease;
@@ -217,7 +233,7 @@ a:hover {
 
 .btn.primary {
     background: var(--primary);
-    color: white;
+    color: var(--bg);
     border-color: transparent;
 }
 
@@ -243,6 +259,38 @@ a:hover {
 }
 
 /* ========== Seções ========== */
+main {
+    counter-reset: sec;
+}
+
+.section .container > h2:first-child,
+.section .container > div > h2:first-child {
+    counter-increment: sec;
+}
+
+.section .container > h2:first-child::before,
+.section .container > div > h2:first-child::before {
+    content: counter(sec, decimal-leading-zero) " \00B7";
+    display: block;
+    margin-bottom: .35rem;
+    font-family: var(--font-label);
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    color: var(--primary);
+}
+
+.menu a,
+.badge,
+.skills-cat,
+.case-label,
+.case-badge,
+.lang-toggle {
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
 .section {
     position: relative;
     padding: 3rem 0;
@@ -258,8 +306,9 @@ a:hover {
 .portrait img {
     width: 100%;
     height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(20, 12, 4, .28);
+    filter: sepia(.18) saturate(.9) contrast(1.03);
 }
 
 .highlights {
@@ -430,7 +479,7 @@ a:hover {
     margin-bottom: 2rem;
     padding: 1.5rem;
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 4px;
     background: var(--surface);
     transition: transform .15s ease;
 }
@@ -443,7 +492,7 @@ a:hover {
     display: inline-block;
     margin-bottom: .75rem;
     padding: .25rem .6rem;
-    border-radius: 999px;
+    border-radius: 3px;
     background: var(--bg);
     border: 1px solid var(--border);
     color: var(--primary);
@@ -476,7 +525,7 @@ a:hover {
 .card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 4px;
     padding: 1rem;
     transition: transform .15s ease;
 }
@@ -516,15 +565,9 @@ a:hover {
 .tags li {
     font-size: .825rem;
     padding: .25rem .5rem;
-    border-radius: 999px;
-    background: #fff;
+    border-radius: 3px;
+    background: var(--bg);
     border: 1px solid var(--border);
-}
-
-html[data-theme="dark"] .tags li {
-    background: #0b0f19;
-    border-color: #2a3344;
-    /* borda um pouco mais evidente */
 }
 
 /* ========== Contato / Rodapé ========== */
@@ -629,8 +672,8 @@ html[data-theme="dark"] .tags li {
     max-height: 60vw;
     border-radius: 50%;
     background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-    opacity: .12;
-    filter: blur(60px);
+    opacity: .08;
+    filter: blur(70px);
 }
 
 /* ----- Languages block ----- */
@@ -648,15 +691,14 @@ html[data-theme="dark"] .tags li {
     bottom: .2rem;
     width: .35rem;
     background: var(--ring);
-    border-radius: .35rem;
-    filter: drop-shadow(0 0 6px var(--ring));
+    border-radius: 3px;
 }
 
 .lang-container {
     position: relative;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 4px;
     padding: 1rem 1.25rem;
 }
 
@@ -668,8 +710,7 @@ html[data-theme="dark"] .tags li {
     bottom: .75rem;
     width: 4px;
     background: var(--accent);
-    border-radius: 999px;
-    filter: drop-shadow(0 0 8px var(--accent));
+    border-radius: 3px;
 }
 
 .lang-grid {
@@ -689,7 +730,7 @@ html[data-theme="dark"] .tags li {
     font-size: 1.4rem;
     /* tamanho da bandeira */
     line-height: 1;
-    border-radius: .25rem;
+    border-radius: 2px;
     box-shadow: 0 0 0 1px var(--border) inset;
 }
 
@@ -719,7 +760,7 @@ html[data-theme="dark"] .tags li {
     gap: .4rem;
     height: 2.25rem;
     padding: 0 .6rem;
-    border-radius: .625rem;
+    border-radius: 3px;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text);
@@ -746,8 +787,8 @@ html[data-theme="dark"] .tags li {
     list-style: none;
     background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: .75rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(20, 12, 4, .28);
     z-index: 20;
 }
 
@@ -756,7 +797,7 @@ html[data-theme="dark"] .tags li {
     align-items: center;
     gap: .5rem;
     padding: .5rem .6rem;
-    border-radius: .5rem;
+    border-radius: 3px;
     font-size: .9rem;
     cursor: pointer;
 }
@@ -781,7 +822,7 @@ html[data-theme="dark"] .tags li {
     justify-content: center;
     width: 2.25rem;
     height: 2.25rem;
-    border-radius: .625rem;
+    border-radius: 3px;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text);
@@ -840,7 +881,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     margin-top: 1.5rem;
     padding: 1rem 1.25rem;
     max-width: 46ch;
-    border-radius: .75rem;
+    border-radius: 4px;
     border: 1px solid var(--border);
     background: var(--surface);
     font-family: var(--mono);
