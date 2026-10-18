@@ -5,13 +5,13 @@
     function getPreferredTheme() {
         var stored = localStorage.getItem(STORAGE_KEY);
         if (stored === 'light' || stored === 'dark') return stored;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return 'dark';
     }
 
     function applyTheme(theme) {
         root.setAttribute('data-theme', theme);
         var meta = document.querySelector('meta[name="theme-color"][data-dynamic]');
-        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f19' : '#ffffff');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#14110e' : '#f4efe6');
         var btn = document.querySelector('.theme-toggle');
         if (btn) {
             var label = window.i18n

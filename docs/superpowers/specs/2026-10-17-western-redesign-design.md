@@ -26,8 +26,7 @@ professional, refined and "means business".
 - Contrast pairs verified to WCAG AA in both themes.
 
 ### Typography
-- Display (h1, h2, hero name): a Clarendon-style slab for the ranch-sign feel
-  (candidates: Bevan, Alfa Slab One; chosen after a specimen check in the browser).
+- Display (h1, h2, hero name): Rye, a decorative western slab chosen by the owner.
 - Labels, nav, buttons, section tags: condensed uppercase, wide tracking (Oswald).
 - Body: Inter. Mono (terminal, tags): JetBrains Mono. Fonts via Google Fonts.
 - Section tags numbered ("01 · About") through CSS counters, no HTML/i18n changes.

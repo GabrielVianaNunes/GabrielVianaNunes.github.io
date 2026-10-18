@@ -39,7 +39,7 @@
     --bg: #f4efe6; --text: #1d1814; --muted: #6e5e4f; --surface: #ebe3d4;
     --border: #d8ccb8; --primary: #8a5f1e; --ring: #c9a566; --rust: #8c4a2b;
     --accent: var(--primary);
-    --font-display: "Bevan", Georgia, serif;
+    --font-display: "Rye", Georgia, serif;
     --font-label: "Oswald", "Arial Narrow", sans-serif;
     --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
