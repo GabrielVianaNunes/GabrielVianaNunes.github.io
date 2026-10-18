@@ -1,20 +1,20 @@
 # Spec do redesign inicial
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 
 - **Portfolio Redesign — Design Spec** (10 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
 - **2026-07-06-portfolio-redesign-design.md** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **Goal** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **Non-goals** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **Real content to use** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **Information architecture (section order)** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **Visual design system** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **i18n architecture** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
-- **Theme architecture** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
 - **Accessibility, SEO, performance** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
 - **File changes** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Goal** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **i18n architecture** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Information architecture (section order)** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Non-goals** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Real content to use** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Theme architecture** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
+- **Visual design system** (1 connections) — `docs/superpowers/specs/2026-07-06-portfolio-redesign-design.md`
 
 ## Relationships
 

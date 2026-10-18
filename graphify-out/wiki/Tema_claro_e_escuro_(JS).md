@@ -1,13 +1,13 @@
-# Tema claro/escuro (JS)
+# Tema claro e escuro (JS)
 
-> 5 nodes
+> 5 nodes · cohesion 0.60
 
 ## Key Concepts
 
 - **theme.js** (4 connections) — `assets/js/theme.js`
 - **toggleTheme()** (3 connections) — `assets/js/theme.js`
-- **applyTheme()** (2 connections) — `assets/js/theme.js`
 - **animateThemeToggle()** (2 connections) — `assets/js/theme.js`
+- **applyTheme()** (2 connections) — `assets/js/theme.js`
 - **getPreferredTheme()** (1 connections) — `assets/js/theme.js`
 
 ## Relationships
