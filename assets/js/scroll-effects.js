@@ -130,5 +130,23 @@
         }
 
         initTimeline();
+
+        function initBrandMarks() {
+            document.querySelectorAll('.brand-mark').forEach(function (mark) {
+                if (prefersReduced) return;
+                var glyph = mark.querySelector('.brand-glyph');
+                gsap.set(glyph, { opacity: 0, scale: 1.18, filter: 'brightness(2.4) drop-shadow(0 0 8px rgba(255, 170, 70, .9))' });
+                gsap.to(glyph, {
+                    opacity: 1,
+                    scale: 1,
+                    filter: 'brightness(1) drop-shadow(0 0 0px rgba(255, 170, 70, 0))',
+                    duration: 1.2,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: mark, start: 'top 90%', once: true }
+                });
+            });
+        }
+
+        initBrandMarks();
     });
 })();

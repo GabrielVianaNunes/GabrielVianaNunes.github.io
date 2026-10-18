@@ -922,3 +922,153 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
         opacity: 0;
     }
 }
+
+/* ========== Marcas de ferro ========== */
+.brand-mark {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .55rem;
+    color: var(--primary);
+    pointer-events: none;
+}
+
+.brand-glyph {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.brand-letter {
+    display: block;
+}
+
+.brand-mark::after {
+    content: attr(data-name);
+    font-family: var(--mono);
+    font-size: .6rem;
+    letter-spacing: .06em;
+    white-space: nowrap;
+    color: var(--muted);
+}
+
+.brand-mark--circle .brand-glyph {
+    border: 2px solid currentColor;
+    border-radius: 50%;
+}
+
+.brand-mark--bar .brand-glyph::after,
+.brand-mark--bar-top .brand-glyph::before {
+    content: "";
+    position: absolute;
+    left: .3rem;
+    right: .3rem;
+    height: 2px;
+    background: currentColor;
+}
+
+.brand-mark--bar .brand-glyph::after {
+    bottom: -.35rem;
+}
+
+.brand-mark--bar-top .brand-glyph::before {
+    top: -.1rem;
+}
+
+.brand-mark--rocking .brand-glyph::after {
+    content: "";
+    position: absolute;
+    left: .35rem;
+    right: .35rem;
+    bottom: -.45rem;
+    height: .6rem;
+    border-bottom: 2px solid currentColor;
+    border-radius: 0 0 50% 50%;
+}
+
+.brand-mark--lazy .brand-letter {
+    transform: rotate(-90deg);
+}
+
+.brand-mark--inline {
+    position: static;
+    flex-direction: row;
+    gap: .75rem;
+    flex: none;
+}
+
+.brand-mark--inline .brand-glyph {
+    width: 2.1rem;
+    height: 2.1rem;
+    font-size: 1rem;
+}
+
+.brand-mark--inline::after {
+    display: none;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.case-study > .brand-mark,
+.card > .brand-mark {
+    position: static;
+    float: right;
+    margin: 0 0 .5rem 1rem;
+}
+
+.card {
+    position: relative;
+}
+
+/* ========== Luz do dia (acompanha a rolagem) ========== */
+.daylight {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(75vmax 75vmax at var(--sun-x, 50%) var(--sun-y, 20%),
+            rgba(var(--sun-rgb, 184, 137, 63), calc(var(--sun-alpha, .09) * var(--sun-gain, 1))),
+            transparent 70%);
+}
+
+html[data-theme="light"] .daylight {
+    --sun-gain: .55;
+}
+
+/* ========== Divisores com estrela ========== */
+.section + .section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(1100px, calc(100% - 2rem));
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, var(--border) 15%, var(--border) calc(50% - 1.1rem),
+            transparent calc(50% - 1.1rem), transparent calc(50% + 1.1rem),
+            var(--border) calc(50% + 1.1rem), var(--border) 85%, transparent);
+}
+
+.section + .section::after {
+    content: "\2605";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-variant-emoji: text;
+    font-size: .7rem;
+    line-height: 1;
+    color: var(--primary);
+}
