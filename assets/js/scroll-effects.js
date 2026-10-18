@@ -63,7 +63,7 @@
 
         initProgressBar();
         initParallax();
-        revealGroup(document.querySelector('.hero .container'), '.badge, h1, .lead, .location, .cta', 0.1);
+        revealGroup(document.querySelector('.hero .container'), '.hero-name, .badge, h1, .lead, .location, .cta', 0.1);
         revealGroup(document.querySelector('#sobre .container > div:first-child'), 'p', 0.08);
         revealGroup(document.querySelector('.contact'), 'li', 0.07);
         document.querySelectorAll('#habilidades .skills-icons').forEach(function (ul) {
