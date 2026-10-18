@@ -12,7 +12,8 @@ Aprofundar a linguagem western do site com detalhes autorais, sem pixel art, ilu
   - Case do SENAI (metrologia): **Rocking M** (letra com arco embaixo)
   - Ultralino: **Lazy U** (letra deitada)
   - Developer Black Box: **Bar B** (barra em cima)
-  - Rodapé: **Circle GN Bar** (a marca de Gabriel, círculo com barra)
+  - Logo do topo e rodapé: **Circle GN Bar** (a marca de Gabriel, círculo com barra); o logo do topo
+    queima assim que a página abre e o do rodapé ao chegar nele
 - Os nomes das marcas são jargão de rancho e ficam sem tradução; o elemento é `aria-hidden`.
 - Ao entrar na tela a marca é "marcada a fogo" (GSAP): o ferro é pressionado (escala 1,5 para 1 em 0,17 s),
   a marca nasce branca-incandescente com brilho de brasa, esfria para laranja e depois para o latão em cerca de

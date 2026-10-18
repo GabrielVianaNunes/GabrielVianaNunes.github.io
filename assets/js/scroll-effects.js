@@ -188,7 +188,7 @@
                 gsap.set(glyph, { opacity: 0 });
                 ScrollTrigger.create({
                     trigger: mark,
-                    start: 'top 88%',
+                    start: 'top 98%',
                     once: true,
                     onEnter: function () { brand(mark); }
                 });

@@ -85,10 +85,12 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .75rem 0;
+    padding: .75rem 1rem;
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
     font-weight: 800;
     letter-spacing: .5px;
 }
@@ -1000,6 +1002,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 
 .brand-mark--inline {
     position: relative;
+    top: auto;
+    right: auto;
     flex-direction: row;
     gap: .75rem;
     flex: none;
@@ -1024,6 +1028,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 .case-study > .brand-mark,
 .card > .brand-mark {
     position: relative;
+    top: auto;
+    right: auto;
     float: right;
     margin: 0 0 .5rem 1rem;
 }
@@ -1110,4 +1116,18 @@ html[data-theme="light"] .daylight {
 
 html[data-theme="light"] .brand-scorch {
     background: radial-gradient(circle, rgba(120, 62, 18, .34) 0%, rgba(120, 62, 18, .16) 42%, transparent 70%);
+}
+
+/* Marca em linha (topo e rodapé): o halo e as brasas partem do centro do glifo */
+.brand-mark--inline .brand-scorch {
+    top: 50%;
+    left: 1.05rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    margin: -1.9rem 0 0 -1.9rem;
+}
+
+.brand-mark--inline .brand-ember {
+    top: 50%;
+    left: 1.05rem;
 }
