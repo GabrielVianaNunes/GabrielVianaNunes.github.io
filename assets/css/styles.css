@@ -999,7 +999,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 }
 
 .brand-mark--inline {
-    position: static;
+    position: relative;
     flex-direction: row;
     gap: .75rem;
     flex: none;
@@ -1023,7 +1023,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 
 .case-study > .brand-mark,
 .card > .brand-mark {
-    position: static;
+    position: relative;
     float: right;
     margin: 0 0 .5rem 1rem;
 }
@@ -1071,4 +1071,43 @@ html[data-theme="light"] .daylight {
     font-size: .7rem;
     line-height: 1;
     color: var(--primary);
+}
+
+/* Efeito de marcação a fogo (ver initBrandMarks em scroll-effects.js) */
+.brand-mark {
+    pointer-events: auto;
+}
+
+.brand-scorch {
+    position: absolute;
+    left: 50%;
+    top: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    margin: -2.5rem 0 0 -2.5rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(46, 20, 6, .5) 0%, rgba(46, 20, 6, .24) 42%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.brand-glyph {
+    z-index: 1;
+}
+
+.brand-ember {
+    position: absolute;
+    left: 50%;
+    top: 1.5rem;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffb347;
+    box-shadow: 0 0 6px 1px rgba(255, 140, 30, .9);
+    pointer-events: none;
+    z-index: 2;
+}
+
+html[data-theme="light"] .brand-scorch {
+    background: radial-gradient(circle, rgba(120, 62, 18, .34) 0%, rgba(120, 62, 18, .16) 42%, transparent 70%);
 }

@@ -14,8 +14,10 @@ Aprofundar a linguagem western do site com detalhes autorais, sem pixel art, ilu
   - Developer Black Box: **Bar B** (barra em cima)
   - Rodapé: **Circle GN Bar** (a marca de Gabriel, círculo com barra)
 - Os nomes das marcas são jargão de rancho e ficam sem tradução; o elemento é `aria-hidden`.
-- Ao entrar na tela a marca "queima": começa clara, ampliada e com brilho de brasa e assenta em
-  1,2 s (GSAP). Com `prefers-reduced-motion` aparece parada.
+- Ao entrar na tela a marca é "marcada a fogo" (GSAP): o ferro é pressionado (escala 1,5 para 1 em 0,17 s),
+  a marca nasce branca-incandescente com brilho de brasa, esfria para laranja e depois para o latão em cerca de
+  2 s, deixa uma chamuscada no card e solta brasas que sobem e somem. Passar o mouse sobre a marca repete a
+  marcação. Com `prefers-reduced-motion` a marca aparece parada, sem efeito.
 - Nos cards, a marca flutua à direita e o texto a contorna.
 
 ### Luz do dia (`assets/js/daylight.js`)
