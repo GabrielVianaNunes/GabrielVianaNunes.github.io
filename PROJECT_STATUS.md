@@ -7,8 +7,33 @@
 > Nodes" e as comunidades detectadas. Regenerar com `graphify . --update`
 > depois de mudanças grandes.
 
-> Última atualização: 2026-10-18 (marcas de ferro com marcação a fogo, luz do dia,
-> divisores, nome no topo e logo GVN; antes: redesign western, projetos e git flow)
+> Última atualização: 2026-11-16 (site alinhado com o LinkedIn, releases v1.0.0 a v1.0.2;
+> antes: marcas de ferro, logo GVN, redesign western, projetos e git flow)
+
+## Para quem continuar (leia primeiro)
+
+- **Estado:** site no ar em https://gabrielviananunes.github.io/ na versão **v1.0.2**.
+  `main` e `develop` estão sincronizadas e só existem essas duas branches.
+- **Regras do dono (valem sempre):** git flow (feature/* a partir da `develop`, PR para
+  `develop`, depois PR de release `develop` → `main`, PR de sincronismo `main` → `develop`
+  com merge commit, tag anotada `vX.Y.Z` + GitHub Release). **O dono mescla os PRs**; o
+  assistente só abre PR, cria tag/Release e apaga a branch temporária (local e remota)
+  depois de cada merge. Commits e PRs em português, com a linha Co-Authored-By.
+- **Texto do site:** sem travessões (nem em/en dash); 4 idiomas sempre em sincronia
+  (`assets/js/i18n.js`: en, pt, de, es); identidade western moderna e profissional, sem
+  pixel art, ilustração ou humor; não copiar elementos do overview do GitHub.
+- **Fonte da verdade do conteúdo profissional:** o LinkedIn do dono
+  (https://www.linkedin.com/in/gabriel-nunes-b8820a254/, perfil bilíngue PT/EN). O site foi
+  alinhado a ele em 2026-11-16. O LinkedIn foi editado pelo assistente via Claude in Chrome.
+- **Ferramentas:** preview local com `preview_start` "portfolio" (python http.server na
+  porta 8080, definido em `.claude/launch.json`; o app encerra o servidor no fim do turno);
+  para a Wiki (repo separado `GabrielVianaNunes.github.io.wiki.git`, branch `master`,
+  páginas em 4 idiomas com prefixos EN-/DE-/ES-) clonar em pasta temporária, editar,
+  dar push e apagar o clone.
+- **Pendências conhecidas:** busca de anterioridade no INPI para a logo; trocar
+  `assets/img/profile.jpg` por foto mais profissional; o CV em `assets/cv/` e o PDF do
+  LinkedIn podem ainda mostrar o e-mail antigo (conferir); README/Wiki/grafo ainda não
+  citam a experiência do SENAI HUB (atualizar se for relevante).
 
 ## Próximos passos
 
@@ -66,7 +91,7 @@
 | Efeitos interativos (botões magnéticos, transição de tema, terminal) | ✅ Pronto e mesclado | 5/5 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos interativos" abaixo. O tilt 3D nos cards implementado nessa sessão foi removido depois, ver "Sessão efeitos mobile". |
 | Redesign western moderno (Ranch Noir) | ✅ Pronto e no ar | Paleta quente, Rye/Oswald, tema escuro padrão, favicon/og-image novos — PRs #6 e #7, ver "Sessão redesign western e git flow" abaixo. |
 | Projetos e habilidades atualizados | ✅ Pronto e no ar | SENAI com link para `TCC`, novo card Developer Black Box, Rust/Tauri/React/SQLite/Vite/GitHub Actions/Docker nas habilidades, travessões removidos — PRs #1 a #4. |
-| Marcas de ferro, luz do dia, divisores e logo GVN | ✅ Pronto e mergeado na `develop` (PRs #12 e #13), aguardando release | Marcação a fogo nas marcas dos projetos, logo "Lasso Dial V" no topo/rodapé/favicon/og-image, nome no cabeçalho e no hero — ver "Sessão marcas de ferro e logo" abaixo. |
+| Marcas de ferro, luz do dia, divisores e logo GVN | ✅ Pronto e no ar (release v1.0.0) | Marcação a fogo nas marcas dos projetos, logo "Lasso Dial V" no topo/rodapé/favicon/og-image, nome no cabeçalho e no hero — ver "Sessão marcas de ferro e logo" abaixo. |
 | Git flow | ✅ Ativo | `main` (produção) e `develop` (integração) protegidas, PR obrigatório, branches temporárias apagadas após o merge. |
 | Efeitos mobile (menu animado, tap feedback, parallax mobile) | ✅ Pronto e mesclado | 6/6 tarefas, auditoria aprovada, mesclado para `main` em 2026-07-09 (fast-forward) — ver "Sessão efeitos mobile" abaixo. O tilt por giroscópio implementado nessa sessão foi removido depois a pedido do usuário (não gostou do efeito). |
 
@@ -514,6 +539,30 @@ dispositivos touch (`deviceorientation`), **não é uma reintrodução** do tilt
   industrial antes de pedir o registro da logo (não foi feita; "GN" fica perto da GN Store
   Nord). O que a IA gerou sozinha pode não ter proteção autoral; documentar a contribuição
   criativa humana.
+
+## Sessão LinkedIn, e-mail e releases (2026-10 a 2026-11)
+
+- **LinkedIn (editado pelo assistente a pedido do dono, para emitir currículo pelo próprio
+  LinkedIn):** título, Sobre (PT e EN), experiências (ZEISS como Estagiário de Engenharia
+  de Software Full Stack com C#, FIEG, SENAI ZEISS, Técnico em eletrônica), competências,
+  projetos (Developer Black Box, Portfólio pessoal, Sistema de Gestão; sem Ultralino nem
+  Inmetro) e idiomas. PDF do LinkedIn baixado em
+  `Documentos_Tarefas\Currículos` (substituiu o anterior).
+- **Site:** e-mail de contato trocado para nunesgabriel.tech@gmail.com; fim do estágio na
+  ZEISS corrigido para mar/2026 (PT/EN/DE/ES).
+- **Alinhamento com o LinkedIn (PR #21, release #22, sincronismo #23, v1.0.2):** nova
+  experiência "Pesquisador e Desenvolvedor de Automações (RPA) · SENAI HUB Goiás"
+  (mai/2026 até hoje; chaves `experience.hub.*`, item novo no fim da timeline); título,
+  lead, linhas do terminal e parágrafo 3 do Sobre atualizados (Java júnior, full stack e
+  RPA, uso de IA como ferramenta, trabalho por contrato); competências novas: Quarkus, C#,
+  Playwright (Backend), SQL Server (Banco), Maven (Ferramentas). Ficaram de fora de
+  propósito: Técnico em eletrônica e Direito (site focado em software) e o fato de o
+  Ultralino não estar no LinkedIn (o site mostra tudo que está no GitHub).
+- **Releases:** v1.0.0 (redesign western, marcas, logo), v1.0.1 (e-mail e data da
+  ZEISS), v1.0.2 (alinhamento LinkedIn); cada uma com tag anotada e GitHub Release.
+- **Lições:** digitação simulada no LinkedIn perde caracteres (usar setter nativo de valor
+  ou `execCommand('insertText')` e conferir); reordenar competências só por arrastar; o
+  classificador de permissões bloqueia o assistente de mesclar PRs (o dono mescla).
 
 ## Bugs encontrados e corrigidos (registro rápido)
 

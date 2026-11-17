@@ -56,7 +56,8 @@ graphify-out/                grafo de conhecimento do projeto (ver abaixo)
 ## Seções da página
 
 Header (logo + nome, nav, seletor de idioma, tema) · Hero · Sobre mim · Experiência
-(SENAI FATESG + estágio internacional na ZEISS) · Skills (Backend, Frontend,
+(SENAI FATESG, estágios na FIEG e no SENAI ZEISS, estágio internacional na ZEISS e
+trabalho atual no SENAI HUB Goiás em automações RPA) · Skills (Backend, Frontend,
 Banco de Dados, Ferramentas, Outras competências, Soft Skills, Idiomas) ·
 Projetos (case do SENAI com link para o repo `TCC`, Ultralino e Developer Black Box) · Contato · Rodapé.
 
@@ -116,6 +117,13 @@ graphify . --update                  # re-extrai só os arquivos que mudaram
 - `main` e `develop` têm proteção: PR obrigatório, sem force push e sem
   exclusão. Depois de cada release, um PR `main` → `develop` (merge commit)
   mantém as duas alinhadas.
+
+- Releases: tag anotada `vX.Y.Z` na `main` + GitHub Release após cada merge de release
+  (atual: v1.0.2). Quem mescla os PRs é o dono do repositório.
+- Conteúdo profissional (cargos, competências, idiomas) segue o LinkedIn do dono; os 4
+  idiomas do `i18n.js` precisam ficar sempre em sincronia e o texto não usa travessões.
+- Estado e histórico detalhados em [PROJECT_STATUS.md](PROJECT_STATUS.md) (comece pela
+  seção "Para quem continuar").
 
 ## Deploy
 
